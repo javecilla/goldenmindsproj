@@ -1,0 +1,159 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+}
+html, body {
+   box-sizing: border-box;
+   overflow-x: hidden;
+}
+
+.btt_btn {
+  padding: 9px!important; 
+  border-radius: 50%; 
+  background-color: #996515; 
+  color: #fff;
+  opacity: .9;
+}
+.btt_btn:hover {
+  color: #fff;
+  opacity: .7;
+}
+
+/* ====== HEADER ====== */
+
+.header_content {
+   background-color: #fff!important;
+   border-bottom: 1px solid #e9ecef;
+   padding-top: 10px;
+}
+.nav_list .nav-item .nav-link {
+   font-size: 16px!important;
+   font-weight: 600;
+   margin-left: 10px;
+}
+.nav_logo {
+   width: 80px;
+   height: 90px;
+}
+.school_name {
+   color: #000;
+   font-family: 'Crimson Text', serif;
+   font-size: 30px;
+   font-weight: 500;
+   letter-spacing: 1px;
+}
+
+/* ====== NAVBAR ====== */
+
+.menu_btn {
+   background-color: transparent;
+   border: none;
+   margin-top: 8px;
+}
+.menu_btn .fa-bars {
+   font-size: 20px!important;
+   font-weight: 400;
+   color: #6c757d;
+}
+.dropdown-item:hover {
+   color: #996515!important;
+}
+/* ====== CAROUSEL CARD ====== */ 
+
+.carousel_icon {
+   font-size: 30px!important;
+   font-weight: 700!important;
+}
+
+.carousel-indicators .active {
+   background-color: #d57c25;
+   -moz-transition:  background-color 0.5s ease-in-out;
+   -o-transition:  background-color 0.5s ease-in-out;
+   -webkit-transition:  background-color 0.5s ease-in-out;
+   transition:  background-color 0.5s ease-in-out;
+}
+
+.background{
+   width: 100%;
+   height: 100%;
+   -webkit-background-size: cover;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   -webkit-filter: blur(13px);
+   filter: blur(13px);
+   position:absolute;
+}
+
+.wrapper{
+   /*    z-index:9999;*/
+   -webkit-filter: blur(0px);
+   filter: blur(0px);
+   overflow: hidden;
+   width: 100%;
+   max-width: 100%;
+   margin: 0 auto;
+   position: relative;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+#slider-carousel .item .carousel-caption {
+   width: 500px;
+   position: absolute;
+   bottom: 18px;
+    
+   top: inherit;
+   right: inherit;
+
+   text-align: left;
+   text-shadow: none;
+   color: inherit;
+   padding: 15px 20px;
+   background-color: white;
+   opacity: 0.7;
+   left: 15px;
+}
+
+.slider-img {
+   max-width: 55%!important;
+  
+   -moz-transition: all 0.35s ease-in-out;
+   -webkit-transition: all 0.35s ease-in-out;
+   transition: all 0.35s ease-in-out;
+}
+
+.slider-img:hover {
+   -moz-transform: scale(1.025);
+   -webkit-transform: scale(1.025);
+   transform: scale(1.025);
+}
+
+
+@media(min-width: 768px) {
+    #slider-carousel .item .carousel-caption {
+        left: 11%;
+    }
+
+    .wrapper {
+        min-width: 768px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+/* ====== NEW AND ANNOUNCEMENTS ====== */ 
+.news_thumbnail:hover, .announcement:hover {
+   transform: scale(1.02);
+   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+
+   display: block;
+}
