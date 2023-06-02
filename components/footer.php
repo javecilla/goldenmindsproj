@@ -7,8 +7,8 @@
           <ul class="nav flex-column bg-transparent mt-3">
             <li class="nav-item mb-2"><a href="home" class="nav-link p-0 text-dark">Home</a></li>
             <li class="nav-item mb-2"><a href="about" class="nav-link p-0 text-dark">About</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-dark">Student Life</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-dark">Alumni</a></li>
+            <li class="nav-item mb-2"><a href="student_life" class="nav-link p-0 text-dark">Student Life</a></li>
+            <li class="nav-item mb-2"><a href="alumni" class="nav-link p-0 text-dark">Alumni</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-dark">Faculty and Staff</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-dark">Programs</a></li>
           </ul>

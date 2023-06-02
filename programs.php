@@ -116,19 +116,55 @@
 				if($_GET['sp'] == 'pre_kinder') 
 				{
 					?>
-					<h6>pre kinder</h6>
+					<center>
+						<div class="row justify-content-center">
+							<div class="col-10">
+								<div class="card guide">
+									<img src="resources/images/general/system_update.png" class="bd-placeholder-img card-img-top img-responsive" alt="System Update" />
+                    <div class="card-body">
+                      <h5 class="card-title">Web site is currently under construction.</h5>
+                      <p class="card-text">Thank you for understanding!</p>
+                    </div>
+                </div>
+							</div>
+						</div>
+					</center>
 					<?php	
 				}
 				else if($_GET['sp'] == 'elementary') 
 				{
 					?>
-					<h6>elementary</h6>
+					<center>
+						<div class="row justify-content-center">
+							<div class="col-10">
+								<div class="card guide">
+									<img src="resources/images/general/system_update.png" class="bd-placeholder-img card-img-top img-responsive" alt="System Update" />
+                    <div class="card-body">
+                      <h5 class="card-title">Web site is currently under construction.</h5>
+                      <p class="card-text">Thank you for understanding!</p>
+                    </div>
+                </div>
+							</div>
+						</div>
+					</center>
 					<?php	
 				} 
 				else if($_GET['sp'] == 'jhs') 
 				{
 					?>
-					<h6>junior high school</h6>
+					<center>
+						<div class="row justify-content-center">
+							<div class="col-10">
+								<div class="card guide">
+									<img src="resources/images/general/system_update.png" class="bd-placeholder-img card-img-top img-responsive" alt="System Update" />
+                    <div class="card-body">
+                      <h5 class="card-title">Web site is currently under construction.</h5>
+                      <p class="card-text">Thank you for understanding!</p>
+                    </div>
+                </div>
+							</div>
+						</div>
+					</center>
 					<?php	
 				}
 				else if($_GET['sp'] == 'shs')
@@ -744,6 +780,24 @@
 		                      		</div>
 		                      		<?php
 		                      	}
+														else if($_GET['op'] == 'faculty_staff') 
+														{
+															?>
+															<center>
+																<div class="row justify-content-center">
+																	<div class="col-10">
+																		<div class="card guide">
+																			<img src="resources/images/general/system_update.png" class="bd-placeholder-img card-img-top img-responsive" alt="System Update" />
+																			<div class="card-body">
+																				<h5 class="card-title">Web site is currently under construction.</h5>
+																				<p class="card-text">Thank you for understanding!</p>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</center>
+															<?php
+														}
 		                      } 
 		                      else {
 		                      	?>
@@ -770,10 +824,10 @@
 					<?php	
 				}
 				else {
-					echo "Bad Request!";
+					require_once __DIR__ . '/components/404.php';
 				}
 			} else {
-				echo "Bad Request!";
+				require_once __DIR__ . '/components/404.php';
 			}
 			?>
 		</section>

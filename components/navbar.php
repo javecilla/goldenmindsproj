@@ -40,17 +40,17 @@
               <li><a class="dropdown-item" href="programs?sp=shs">Senior High School</a></li>
             </ul>
           </li>         
-          <li class="nav-item"><a class="nav-link text-dark" href="#"> Student Life </a></li>
-          <li class="nav-item"><a class="nav-link text-dark" href="#"> Alumni </a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="student_life"> Student Life </a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="alumni"> Alumni </a></li>
           <!-- <li class="nav-item"><a class="nav-link " href="#"> Faculty and Staff </a></li> -->
-          <li class="nav-item"><a class="nav-link text-dark" href="#"> Research, Development Department</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="research_development_department"> Research, Development Department</a></li>
           <li class="nav-item"><a class="nav-link text-dark" href="#"> News</a></li>
           <li class="nav-item"><a class="nav-link text-dark" href="#"> Announcements</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark" href="#" id="online_services" data-bs-toggle="dropdown" aria-expanded="false">Online Services</a>
             <ul class="dropdown-menu" aria-labelledby="online_services">
               <li><a class="dropdown-item" href="#">Admission Requirements</a></li>
-              <li><a class="dropdown-item" href="#">Online Application</a></li>
+              <li><a class="dropdown-item" href="online_application">Online Application</a></li>
               <li><a class="dropdown-item" href="#">Student Portal</a></li>
             </ul>
           </li>
