@@ -19,7 +19,7 @@
           <label class="school_name logo-title text-uppercase" style="cursor: pointer;">
             <span>G<small>olden</small></span>
             <span>M<small>inds</small></span>
-            <span class="">B<small>ulacan Inc.</small></span>
+            <!-- <span class="">B<small>ulacan Inc.</small></span> -->
           </label>
         </a>
       

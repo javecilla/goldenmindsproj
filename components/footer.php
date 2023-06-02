@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-6 col-md-2 mb-3">
           <div style="border-left: 3px solid gray;"><h4>&nbsp;App</h4></div>
-          <ul class="nav flex-column bg-transparent mt-3" style="">
+          <ul class="nav flex-column bg-transparent mt-3">
             <li class="nav-item mb-2"><a href="home" class="nav-link p-0 text-dark">Home</a></li>
             <li class="nav-item mb-2"><a href="about" class="nav-link p-0 text-dark">About</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-dark">Student Life</a></li>

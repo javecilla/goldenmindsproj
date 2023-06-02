@@ -239,8 +239,8 @@
                   </div>
                   <div class="card-text mt-3">
                     <p spellcheck="true" class="paragraph_text">
-                      ....To help students develop and realize their full potential as a student and as an individual, promote the Golden Rule and encourage them to act with kindness to which shall make them positive contributors for a peaceful and better society.
-                    </p>
+                      To create a supportive environment that nurture and empowers the learning spirit of our students to be more productive, goal-driven, academically explorative and thus become a good contributir to his environment fostering respect and love for others.
+                    </p>  
                   </div>
                 </div>
                 <div class="col-6">
@@ -249,9 +249,9 @@
                   </div>
                   <div class="card-text mt-3">
                     <p spellcheck="true" class="paragraph_text">
-                      ....Golden Minds will be one of the best school providers that highly regarded for its Golden Teachings, Golden Values and Golden Hearts as the primary components which shall make every student equipped and ready with knowledge and skills to meet the demands of this fast changing world.
+                      We are envisioned to cultivate and ignite a dynamic learning environment that equips students with knowledge  and skills to become ready in the fast changing technology, to seek excellence in their chosen endeavour, develops critical thinking and fair judgement.
                     </p>
-                  </div>
+                  </div>  
                 </div>
               </div>
             </div>

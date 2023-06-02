@@ -213,8 +213,7 @@
       <hr/>
 
       <div id ="back-to-top" style="display: none;">
-        <a class="p-0 btn btn-xs position-fixed top btt_btn" id="top" href="#top"
-        style="">
+        <a class="p-0 btn btn-xs position-fixed top btt_btn" id="top" href="#top">
           <i class="fa-solid fa-chevron-up" style="font-size: 20px"></i>
         </a>
       </div>
