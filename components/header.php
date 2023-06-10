@@ -16,7 +16,7 @@
       
         <a class="navbar-brand" onclick="location.reload();" style="cursor: pointer;">
           <img src="resources/images/general/gmc/gmc_logo.png" width="50" />
-          <label class="school_name logo-title text-uppercase" style="cursor: pointer;">
+          <label class="school_name logo-title text-uppercase" style="cursor: pointer; font-size: 25px!important;">
             <span>G<small>olden</small></span>
             <span>M<small>inds</small></span>
             <!-- <span class="">B<small>ulacan Inc.</small></span> -->

@@ -384,8 +384,8 @@ Array.from(sidebarToggleBtn, (sidebarBtn) => {
 /*------------------------
 Back To Top
 --------------------------*/
-const backToTop = document.getElementById("back-to-top")
-console.log(backToTop)
+const backToTop = document.getElementById("back-to-top");
+console.log(backToTop);
 if( backToTop !== null && backToTop !== undefined ) {
   document.getElementById("back-to-top").classList.add("animate__animated","animate__fadeOut")
   window.addEventListener('scroll', (e) => {
@@ -408,10 +408,10 @@ document.querySelector('#top').addEventListener('click', (e) => {
 /*---------------------------------------------------------------------
               DOMContentLoaded
 -----------------------------------------------------------------------*/
-// document.addEventListener('DOMContentLoaded', (event) => {
-//   resizePlugins()
-//   loaderInit()
-// });
+document.addEventListener('DOMContentLoaded', (event) => {
+  resizePlugins()
+  loaderInit()
+});
 
 /*---------------------------------------------------------------------
               Window Resize

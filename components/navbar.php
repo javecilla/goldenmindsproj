@@ -50,7 +50,7 @@
             <a class="nav-link dropdown-toggle text-dark" href="#" id="online_services" data-bs-toggle="dropdown" aria-expanded="false">Online Services</a>
             <ul class="dropdown-menu" aria-labelledby="online_services">
               <li><a class="dropdown-item" href="#">Admission Requirements</a></li>
-              <li><a class="dropdown-item" href="online_application">Online Application</a></li>
+              <li><a class="dropdown-item" href="online_application?at=main">Online Application</a></li>
               <li><a class="dropdown-item" href="#">Student Portal</a></li>
             </ul>
           </li>

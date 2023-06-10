@@ -23,8 +23,8 @@
     <!-- Jquery file -->
    <script src="vendor/libs/jquery/jquery-3.7.0.min.js" type="text/javascript"></script>
    <!-- Sweetalert 2 file -->
-   <!-- script src="vendor/plugins/sweetalert2/dist/sweetalert2.all.min.js"></script>
-   <link href="vendor/plugins/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css"/> -->
+   <script src="vendor/plugins/sweetalert2/dist/sweetalert2.all.min.js"></script>
+   <link href="vendor/plugins/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
       
 
    <!-- Library / Plugin Css Build -->
@@ -34,11 +34,11 @@
    <link rel="stylesheet" href="vendor/tmp/css/custom.css?v=1.2.0" />
    <link defer rel="stylesheet" href="assets/css/style/gmc_style.css" type="text/css"/>
 
-    <!--maps  -->
-     <link rel="stylesheet" type="text/css" href="vendor/tmp/css/maps/custom.min.css.map">
-      <link rel="stylesheet" type="text/css" href="vendor/tmp/css/maps/customizer.min.css.map">
+   <!--maps  -->
+   <link rel="stylesheet" type="text/css" href="vendor/tmp/css/maps/custom.min.css.map">
+   <link rel="stylesheet" type="text/css" href="vendor/tmp/css/maps/customizer.min.css.map">
 
-
+   <script src="assets/js/functions.js" defer></script>
 
    <!-- Library Bundle Script -->
    <script src="vendor/tmp/js/core/libs.min.js"></script>

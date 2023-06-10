@@ -109,7 +109,7 @@
 			</div>
 			<h2>We are sorry, Page not found!</h2>
 			<p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
-			<a onclick="window.history.go(-1)'" class="text-white">Back to previous page</a>
+			<a onclick="window.history.go(-1);" class="text-white">Back to previous page</a>
 		</div>
 	</div>
 </body>
