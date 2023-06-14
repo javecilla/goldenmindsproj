@@ -39,20 +39,6 @@ Index Of Script
 ----------------------------------------------*/
 "use strict";
 /*---------------------------------------------------------------------
-              Sticky-Nav
------------------------------------------------------------------------*/
-window.addEventListener('scroll', function() {
- let yOffset = document.documentElement.scrollTop;
-  let navbar =  document.querySelector(".navs-sticky")
-  if (navbar !== null) {
-    if (yOffset >= 100) {
-        navbar.classList.add("menu-sticky");
-    } else {
-        navbar.classList.remove("menu-sticky");
-    }
-  }
-});
-/*---------------------------------------------------------------------
               Popover
 -----------------------------------------------------------------------*/
 
@@ -334,21 +320,6 @@ const resizePlugins = () => {
   }
 }
 
-
-/*---------------------------------------------------------------------
-              LoaderInit
------------------------------------------------------------------------*/
-
-// const loaderInit = () => {
-//   const loader = document.querySelector('.loader')
-//   setTimeout(() => {
-//     loader.classList.add('animate__animated', 'animate__fadeOut')
-//     setTimeout(() => {
-//       loader.classList.add('d-none')
-//     }, 500)
-//   }, 500)
-// }
-
 /*---------------------------------------------------------------------
               Sidebar Toggle
 -----------------------------------------------------------------------*/
@@ -385,7 +356,7 @@ Array.from(sidebarToggleBtn, (sidebarBtn) => {
 Back To Top
 --------------------------*/
 const backToTop = document.getElementById("back-to-top");
-console.log(backToTop);
+// console.log(backToTop);
 if( backToTop !== null && backToTop !== undefined ) {
   document.getElementById("back-to-top").classList.add("animate__animated","animate__fadeOut")
   window.addEventListener('scroll', (e) => {
@@ -405,39 +376,6 @@ document.querySelector('#top').addEventListener('click', (e) => {
 }
 
 
-/*---------------------------------------------------------------------
-              DOMContentLoaded
------------------------------------------------------------------------*/
-document.addEventListener('DOMContentLoaded', (event) => {
-  resizePlugins()
-  loaderInit()
-});
-
-/*---------------------------------------------------------------------
-              Window Resize
------------------------------------------------------------------------*/
-
-window.addEventListener('resize', function(event) {
-  resizePlugins()
-});
-
-/*-------------------------------
-| | | | | DropDown
---------------------------------*/
-
-function darken_screen(yesno){
-  if( yesno == true ){
-    if (document.querySelector('.screen-darken') !== null) {
-      document.querySelector('.screen-darken').classList.add('active');
-    }
-  }
-  else if(yesno == false){
-    if (document.querySelector('.screen-darken') !== null) {
-      document.querySelector('.screen-darken').classList.remove('active');
-    }
-  }
-}
-	
 function close_offcanvas(){
   darken_screen(false);
   if (document.querySelector('.mobile-offcanvas.show') !== null) {
@@ -454,27 +392,6 @@ function show_offcanvas(offcanvas_id){
   }
 }
 
-document.addEventListener("DOMContentLoaded", function(){
-  document.querySelectorAll('[data-trigger]').forEach(function(everyelement){
-    let offcanvas_id = everyelement.getAttribute('data-trigger');
-    everyelement.addEventListener('click', function (e) {
-      e.preventDefault();
-          show_offcanvas(offcanvas_id);
-    });
-  });
-  if(document.querySelectorAll('.btn-close')) {
-    document.querySelectorAll('.btn-close').forEach(function(everybutton){
-      everybutton.addEventListener('click', function (e) { 
-            close_offcanvas();
-        });
-    });
-  }
-  if(document.querySelector('.screen-darken')) {
-    document.querySelector('.screen-darken').addEventListener('click', function(event){
-      close_offcanvas();
-    });
-  }
-});
 if (document.querySelector('#navbarSideCollapse'))  {
   document.querySelector('#navbarSideCollapse').addEventListener('click', function () {
     document.querySelector('.offcanvas-collapse').classList.toggle('open')

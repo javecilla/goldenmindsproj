@@ -38,15 +38,15 @@
    <link rel="stylesheet" type="text/css" href="vendor/tmp/css/maps/custom.min.css.map">
    <link rel="stylesheet" type="text/css" href="vendor/tmp/css/maps/customizer.min.css.map">
 
-   <script src="assets/js/functions.js" defer></script>
+   
 
    <!-- Library Bundle Script -->
-   <script src="vendor/tmp/js/core/libs.min.js"></script>
+   <!-- <script src="vendor/tmp/js/core/libs.min.js"></script>
    <!-- External Library Bundle Script -->
-   <script src="vendor/tmp/js/core/external.min.js"></script>
+   <!-- <script src="vendor/tmp/js/core/external.min.js"></script> -->
    <!-- Slider-tab Script -->
-   <script src="vendor/tmp/js/plugins/slider-tabs.js"></script>
+   <!-- <script src="vendor/tmp/js/plugins/slider-tabs.js"></script> -->
    <!-- AOS Animation Plugin-->
-   <script src="vendor/tmp/aos/dist/aos.js"></script>
+   <!-- <script src="vendor/tmp/aos/dist/aos.js"></script>  -->
    <!-- App Script -->
-   <script src="vendor/tmp/js/app.js" defer></script>
+   <script defer src="vendor/tmp/js/app.js"></script>
