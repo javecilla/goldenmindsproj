@@ -12,9 +12,9 @@ if(isset($_SESSION['campusSelected'])) {
   <?php require_once __DIR__ . '/components/links.php'; ?>
   <style>
     .center {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: flex!important;
+      justify-content: center!important;
+      align-items: center!important;
     }
 
 
@@ -50,8 +50,6 @@ if(isset($_SESSION['campusSelected'])) {
       opacity: .8;
     }
 
-
- 
     .preregister-box {
       display: flex;
       justify-content: center;
@@ -60,11 +58,11 @@ if(isset($_SESSION['campusSelected'])) {
       margin-top: 4%;
     }
     .f-card {
-      border: 1px solid #DE673E!important;
+      border: 1px solid #996515!important;
     }
 
     .f-header {
-      background: #DE673E;
+      background: #996515;
     }
 
     p.reminderp, p.infomationp {
@@ -196,7 +194,8 @@ if(isset($_SESSION['campusSelected'])) {
     }
     small.guide {
       font-size: 13px!important;
-      line-height: 4px!important;
+      color: #212529!important;
+      opacity: .8;
     }
 
     label {
@@ -204,9 +203,10 @@ if(isset($_SESSION['campusSelected'])) {
       color: #1c2d41;
     }
     label.typeform {
-      font-size: 14px!important;
+      font-size: 16px!important;
       color: #1c2d41;
-      border-bottom: 2px solid #5F76E8!important;
+      font-weight: 600;
+      border-bottom: 2px solid #996515!important;
     }
     .radio {
       cursor: pointer;
@@ -255,7 +255,7 @@ if(isset($_SESSION['campusSelected'])) {
       else if($_GET['at'] == 'shs') {
         if(isset($_GET['form']) && $_GET['form'] == 'qualifications') {
           ?>
-            <div class="auth-wrapper center" id="center">
+            <div class="auth-wrapper center" id="center" style="width: 100%!important;">
               <div class="card qualifications_card">
                 <div class="card-header" style="background-color: #996515; color:#fff; opacity: .8;">
                   <h2 class="text-white quali-head-title pb-3">Qualifications</h2>
@@ -353,15 +353,10 @@ if(isset($_SESSION['campusSelected'])) {
                             <option value="Balagtas, Bulacan">Balagtas, Bulacan</option>
                           </select>
                         </div>
-                        <div class="mt-4 ">
-                          <p class="mb-1 snote"><strong>Note: Prior to filling out the application form, it is advisable for the applicant to have a formal 1x1 or 2x2 photograph prepared for their student profile. The file or image must follow this format: [jpg, png, jpeg]. 
-                            <a href="javascript:void(0)" class="seeSample" style="color: #996515; opacity: .8;">Please click here to the example</a></strong>
-                          </p>
-                        </div>
                       </div><!--end second column-->
                     </div><!--row-->
                     <div class="actions-btn mt-4">
-                      <button type="button" onclick="cancel('signin')" class="btn btn-secondary btn-sm ">Cancel (Back to Signin)</button>
+                      <button type="button" onclick="cancel('signin')" class="btn btn-secondary btn-sm ">Cancel </button>
                       <button type="button" id="next" class="btn btn-sm float-end" style="background-color: #996515; color:#fff; opacity: .8;">
                         Next <i class=" fas fa-arrow-right"></i>
                       </button>
@@ -370,425 +365,394 @@ if(isset($_SESSION['campusSelected'])) {
                 </div><!--card body-->
               </div><!--card-->
             </div><!--End login box-->
-          </div><!--end wrapper-->
-
           <?php
         }
-        if(isset($_GET['mode'])) {
+        if(isset($_GET['mode']) && $_GET['mode'] == 'fill_up') {
           ?>
-             <div class="auth-wrapper center">
-              <div class="preregister-box">
-                <div class="row">
-                  <!-- start first column -->
-                  <div class="col-md-4">
-                    <div class="card border-danger f-card">
-                      <div class="card-header f-header p-1"><h5 class="mb-0 text-white p-2">Reminder</h5></div>
-                      <div class="card-body p-0">
-                        <p class="card-text p-3 reminderp" style="text-align: justify; text-justify: inter-word; color: #000;">
-                          An applicant is only allowed to have one (1) account to apply and one (1) admission evaluation 
-                          for Golden Minds Branch/Campus. Multiple accounts, multiple applications, and falsification of 
-                          submitted information will disqualify your admission to Golden Minds.
-                        </p>
-                      </div>
+            <div class="auth-wrapper center" id="center" style="width: 100%!important;">
+              <div class="card qualifications_card">
+                <div class="card-header" style="background-color: #996515; color:#fff; opacity: .8;">
+                  <h2 class="text-white quali-head-title pb-3">Enrollment / Application Form</h2>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title text-muted">Date of Admission: 
+                    <span><strong><?php echo date("l, F j, Y")?></strong></span>
+                    <input type="hidden" id="dateRegistration" value="<?php echo date("l, F j, Y")?>"/>
+                  </h6><hr class="text-muted">
+
+                  <form action="/" method="/" id="qualification_form"> 
+                    <div class="row">
+                      <!-- first column -->
+                      <div class="col-lg-6">
+                        <label class="text-uppercase typeform mb-4">Applying For</label>
+                        <div class="">
+                          <label class="mb-1 quali-label"><strong>• Grade Level</strong></label>
+                          <select class="form-select quali-select" id="gradeLevel">
+                            <option value="" selected>-- SELECT --</option>
+                            <option value="Grade 11">Grade 11</option>
+                            <option value="Grade 12">Grade 12</option>
+                          </select>
+                        </div>
+
+                        <div class="">
+                          <label class="mb-1 mt-3 quali-label"><strong>• School Year</strong></label>
+                          <select class="form-select quali-select" id="schoolYear">
+                            <option value="" selected>-- SELECT --</option>
+                            <option value="2023-2024">2023-2024</option>
+                            <option value="2022-2023">2022-2023</option>
+                            <option value="2021-2022">2021-2022</option>
+                          </select>
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="mb-1 quali-label"><strong>• Semester</strong></label>
+                          <select class="form-select quali-select" id="semester">
+                            <option value="" selected>-- SELECT --</option>
+                            <option value="1st Semester">1st Semester</option>
+                            <option value="2nd Semester">2nd Semester</option>
+                          </select>
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="mb-1 quali-label"><strong>• School Branch/Campus</strong></label>
+                          <input type="text"  class="form-control text-dark" value="<?php if(isset($_SESSION['campusSelected'])) { echo $_SESSION['campusSelected']; } ?>" id="campus"/>
+                          <small class="mb-1 guide"><strong><span class="text-danger">*</span></strong> This branch/campus is selected because you select this campus in qualification form as preferred campus. Make sure that the information you entered is true and correct.</small>
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="mb-1 quali-label"><strong>• Track/Strand</strong></label>
+                          <select class="form-select quali-select" id="strand">
+                            <option value="" selected>-- SELECT --</option>
+                            <option value="STEM">Science, Technology Engineering and Mathematics (STEM)</option>
+                            <option value="ABM">Accountancy, Business and Management (ABM)</option>
+                            <option value="HUMSS">Humanities and Social Sciences (HUMSS)</option>
+                            <option value="GAS">General Academic Strand (GAS)</option>
+                            <option value="TVL-HE">Technical-Vocational-Livelihood Home Economics (TVL-HE)</option>
+                            <option value="TVL-ICT">Technical-Vocational-Livelihood Information and Communications Technology (TVL-ICT)</option>
+                          </select>
+                        </div>
+
+                        <div class="mt-3 mb-4">
+                          <label class="mb-1 quali-label"><strong>• LRN <span class="text-danger">*</span></strong> Leave it blank if not applicable to you</label>
+                          <div class="form-control">
+                            <input type="text" class="form-control" id="lrn" placeholder="Enter your LRN"/>
+                          </div>
+                        </div>
+
+                        <label class="text-uppercase typeform mb-4">Personal Information</label>
+                        <div class="row">
+                          <div class="col-6 mt-2">
+                            <label class="mb-1 quali-label"><strong>• Last Name</strong></label>
+                            <input type="text" class="form-control" id="lastName"placeholder="Your Last Name"/>
+                          </div>
+                          <div class="col-6 mt-2">
+                            <label class="mb-1 quali-label"><strong>• First Name</strong></label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Your First Name"/>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-6 mt-3">
+                            <label class="mb-1 quali-label"><strong>• Middle Name</strong></label>
+                            <input type="text" class="form-control" id="middleName" placeholder="Your Last Name"/>
+                          </div>
+                          <div class="col-6 mt-3">
+                            <label class="mb-2 quali-label"><strong>• Ext Name</strong></label>
+                            <input type="text" class="form-control" id="extName"placeholder="Your First Name"/>
+                          </div>
+                          <label class="mb-1 guide"><strong><span class="text-danger">*</span></strong> Leave it blank if not applicable to you [Middle and/or Ext Name].</label>
+                        </div>
+
+                        <div class="mt-3 radio-group" data-input-id="gender">
+                          <label class="mb-1 quali-label"><strong>• Gender / Sex</strong></label>
+                          <div class="form-control" id="isGender">
+                            <label class="radio quali-label">
+                              <input type="radio" name="gender" value="male"/> Male
+                            </label>&nbsp;&nbsp;
+                            <label class="radio quali-label">
+                              <input type="radio" name="gender" value="female"/> Female
+                            </label>
+                            <input type="hidden" id="gender"/>
+                          </div>
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="mb-1 quali-label"><strong>• Date of Birth</strong></label>
+                          <div class="input-group">
+                            <span class="input-group-text"><span class="age">Age: </span> </span>
+                            <input type="date" class="form-control" id="dob" name="dob"/>
+                          </div>
+                          <small class="guide"><span class="text-danger">*</span> Select the month, day and year of your birth, or type it following this format: mm/dd/yyyy (Example: 03/24/2004)</small>
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="mb-1 quali-label"><strong>• Place of Birth</strong></label>
+                          <input type="text" class="form-control" placeholder="Your Place of Birth" id="pob"/>
+                          <small class="guide"><span class="text-danger">*</span> Your complete place of birth based on your PSA birth certificate</small>
+                        </div>
+
+                        <div class="mt-3">
+                          <div class="row">
+                            <div class="col-6">
+                              <label class="mb-1 quali-label"><strong>• Nationality</strong></label>
+                              <input type="text" class="form-control" placeholder="Your Nationality" id="nationality"/>
+                            </div>
+                            <div class="col-6">
+                              <label class="mb-1 quali-label"><strong>• Religion</strong></label>
+                              <input type="text" class="form-control" placeholder="Your Religion" id="religion"/>
+                            </div>
+                          </div>
+                        </div>
+
+                        <label class="text-uppercase typeform mb-4 mt-4">Address and Contact Details</label>
+                        <div class="mt-3">
+                          <label class="mb-2 quali-label"><strong>• Address </strong></label>
+                          <input type="text" class="form-control" placeholder="House no. Street Name" id="address"/>
+                          <small class="guide"><span class="text-danger">*</span> Your complete current address based on your PSA birth certificate. Example: [Ph7, Blk3, Lot24 Demacia St.]</small>   
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="mb-2 quali-label"><strong>• Baranggay</strong></label>
+                          <input type="text" class="form-control" placeholder="Ex: Brgy. Sagabal" id="baranggay"/>
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="mb-2 quali-label"><strong>• City / Municipality</strong></label>
+                          <input type="text" class="form-control" placeholder="Your City" id="city"/>
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="mb-2 quali-label"><strong>• Province / Region</strong></label>
+                          <input type="text" class="form-control" placeholder="Your Province" id="province"/>
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="mb-2 quali-label"><strong>• Contact No. </strong></label>
+                          <input type="text" class="form-control" placeholder="Phone Number" id="contactNo"/>
+                        </div>
+                      </div> <!--end first column-->
+
+                      <!-- second column -->
+                      <div class="col-lg-6"> 
+                        <label class="text-uppercase typeform mb-4">Student Last School Attended</label>
+                        <div class="mt-3">
+                          <label class="mb-2 quali-label"><strong>• Completion Date </strong></label>
+                          <input type="date" class="form-control" id="completionDate"/>
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="mb-2 quali-label"><strong>• Completer as <br/><span class="text-danger"> *</span></strong> Please specify what type of completer are you</label>
+                          <select class="form-select quali-select" id="completerAs">
+                            <option value="" selected>-- SELECT --</option>
+                            <option value="HSC">High School Completer</option>
+                            <option value="JHS_CG10">Junior High School Completer (Grade 10)</option>
+                            <option value="PEPTP">PEPT Passer</option>
+                            <option value="ALS">ALS A&E Passer</option>
+                            <option value="Others">Others</option>
+                          </select>
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="quali-label mb-2"><strong>• Former School Name</strong></label>
+                          <input type="text" class="form-control" placeholder="Last School Attended" id="formerSchoolName"/>
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="quali-label mb-2"><small class="guide"><span class="text-danger">*</span> <strong>Note:</strong> Enter name of your former grade 10 teacher and section (For graduate High School and Junior High School)</small></label>
+                          <div class="row">
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Grade 10 Adviser"
+                              id="formerAdviserName"/>
+                            </div>
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Grade 10 Section"
+                              id="formerSectionName"/>
+                            </div>
+                          </div>
+                        </div>
+
+                        <label class="text-uppercase typeform mb-4 mt-4">Parents / Guardian Information</label>
+                        <div class="mt-3">
+                          <label class="quali-label mb-2"><strong>• Father's Information</strong></label>
+                          <div class="row mt-1">
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Last Name" 
+                              id="lnFather"/>
+                            </div> 
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="First Name" 
+                              id="fnFather"/>
+                            </div>
+                          </div>
+                          <div class="row mt-2">
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Middle Name" 
+                              id="mnFather"/>
+                            </div> 
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Occupation" 
+                              id="occupationFather"/>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="quali-label mb-2"><strong>• Mother's Information</strong></label>
+                          <div class="row mt-1">
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Last Name" 
+                              id="lnMother"/>
+                            </div> 
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="First Name" 
+                              id="fnMother"/>
+                            </div>
+                          </div>
+                          <div class="row mt-2">
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Middle Name" 
+                              id="mnMother"/>
+                            </div> 
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Occupation" 
+                              id="occupationMother"/>
+                            </div>
+                          </div>
+                        </div>
+
+                        <label class="text-uppercase typeform mb-4 mt-4">Contact Emergency Person</label>
+                        <div class="mt-2">
+                          <label class="quali-label mb-2"><strong>• Guardian Information</strong></label>
+                          <div class="row mt-1">
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Last Name" 
+                              id="lnGuardian"/>
+                            </div> 
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="First Name" 
+                              id="fnGuardian"/>
+                            </div>
+                          </div>
+                          <div class="row mt-2">
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Middle Name" 
+                              id="mnGuardian"/>
+                            </div> 
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Relationship" 
+                              id="rsGuardian"/>
+                            </div>
+                          </div>
+                          <div class="row mt-2">
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Occupation" 
+                              id="occupationGuardian"/>
+                            </div> 
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Contact No." 
+                              id="cnGuardian"/>
+                            </div>
+                          </div>
+                        </div>
+
+                        <label class="text-uppercase typeform mb-4 mt-4">Referral Person's Information</label><br/>
+                        <label class="guide"><span class="text-danger">*</span> <strong>Note:</strong> Enter your referral information thus Leave it blank if not applicable to you.</label>
+                        <div class="mt-2">
+                          <div class="row mt-1">
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Refferal Name" id="referralName"/>
+                            </div> 
+                            <div class="col-6">
+                              <input type="text" class="form-control" placeholder="Refferal Number" id="referralNumber"/>
+                            </div>
+                          </div>
+                        </div>
+
+                        <label class="text-uppercase typeform mb-4 mt-4">Documents</label><br/>
+                        <label class="guide"><span class="text-danger">*</span> <strong>Note:</strong> Please check the documents if you already have.</label>
+                        <div class="mt-2">
+                          <div class="row">
+                            <div class="col-4">
+                              <label>
+                                <input type="checkbox" onclick="subDoc('Good Moral')"/> <span>Good Moral</span>
+                                <input type="hidden" id="good_moral"/>
+                              </label>
+                            </div>
+                            <div class="col-4">
+                              <label>
+                                <input type="checkbox" onclick="subDoc('Card')"/> <span>Card</span>
+                                <input type="hidden" id="card"/>
+                              </label>
+                            </div>
+                            <div class="col-4">
+                              <label>
+                                <input type="checkbox" onclick="subDoc('Form 137')"/> <span>Form 137</span>
+                                <input type="hidden" id="form_137"/>
+                              </label>
+                            </div>
+                          </div>
+
+                          <label class="mt-3">
+                            <input type="checkbox" onclick="subDoc('PSA')"/> <span>PSA</span>
+                            <input type="text" placeholder="PSA Remarks" id="psa_remarks"/><br/><br/>
+                            <span><span class="text-danger mt-2">*</span> <strong>Note:</strong> Please specifies your psa submitted [e.g., Photocopy/Xerox or Orginal]</span><br/><br/>
+                            <input type="hidden" id="psa"/>
+                          </label>
+                          
+                          <div class="row mb-3">
+                            <div class="col-4">
+                              <label >
+                                <input type="checkbox" onclick="subDoc('ID')"/> <span>ID</span>
+                                <input type="hidden" id="id"/>
+                              </label>
+                            </div>
+                            <div class="col-4">
+                              <label>
+                                <input type="checkbox" onclick="subDoc('PE Shirt')"/> <span>PE Shirt</span>
+                                <input type="hidden" id="peShirt"/>
+                              </label>
+                            </div>
+                            <div class="col-4">
+                              <label>
+                                <input type="checkbox" onclick="subDoc('Waiver')"/> <span>Waiver</span>
+                                <input type="hidden" id="waiver"/>
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-4">
+                              <label>
+                                <input type="checkbox" onclick="subDoc('Uniform')"/> <span>Uniform</span>
+                                <input type="hidden" id="uniform"/>
+                              </label>
+                            </div>
+                            <div class="col-4">
+                              <label>
+                                <input type="checkbox" onclick="subDoc('Allowance')"/> <span>Allowance</span>
+                                <input type="hidden" id="allowance"/>
+                              </label>
+                            </div>
+                            <div class="col-4">
+                              <label>
+                                <input type="checkbox" onclick="subDoc('Document Filed')"/> <span>Document Filed</span>
+                                <input type="hidden" id="docuFiled"/>
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div><!--end second column-->
+                    </div><!--row-->
+                    <div class="actions-btn mt-4">
+                      <button type="button" onclick="cancel('signin')" class="btn btn-secondary btn-sm ">Cancel</button>
+                      <button type="button" id="submit" class="btn btn-sm float-end" style="background-color: #996515; color:#fff; opacity: .8;">
+                        Submit <i class=" fas fa-arrow-right"></i>
+                      </button>
                     </div>
-
-                    <div class="card border-danger s-card">
-                      <div class="card-body p-0">
-                        <p class="card-text p-3 infomationp" style="text-align: justify; text-justify: inter-word; color: #000;">
-                          This is form is for <b><?=$campusSelected?></b>.
-                          Please make sure that the information you will provide is true and correct.
-                          <br/><br/>
-                          All fields are required.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="card border-danger t-card">
-                      <div class="card-body p-0">
-                        <p class="card-text p-3" style="color: #000">
-                          <?php
-                            if(isset($_SESSION['useremail']) && isset($_SESSION['lrn'])) {
-                              ?>
-                              <span class="applicant">
-                                <span class="date-reg-label">Applicant:</span>&nbsp; 
-                                <strong><span class="date-reg "><?=$_SESSION['useremail']?></span></strong>
-                              </span><br/>
-                              <span class="applicant">
-                                <span class="date-reg-label">LRN:</span>&nbsp; 
-                                <strong><span class="date-reg "><?=$_SESSION['lrn']?></span></strong>
-                              </span>
-                              <?php
-                            }
-                          ?>
-                          <br/>
-                          <span class="date-reg-label">Date of Registration</span>:&nbsp; 
-                          <strong><span class="date-reg"><?php echo date("F j, Y")?></span></strong>
-                        </p>
-                      </div>
-                    </div>
-                  </div><!--end first column-->
-                  <!-- start second column -->
-                  <div class="col-md-8">
-                    <form method="POST" enctype="multipart/form-data" id="ThisForm"
-                    class="ThisForm form-inline" role="form" autocomplete="off">
-                      <?php
-                        if($_GET['mode'] == 'create_acct') {
-                          ?>
-                            <div class="card">
-                              <div class="card-header f-header-col-2 p-1">
-                                <h5 class="mb-0 text-white p-2"><span>Create Account</span></h5>
-                              </div>
-                                <!-- start progressbar -->
-                                <center>
-                                  <div class="progress mt-5 mb-2" style="width: 90%;">
-                                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="15" aria-valuemin="0" 
-                                    aria-valuemax="100" style="width: 15%;"></div>
-                                  </div>
-                                </center>
-                                <!-- step form list -->
-                                <ul id="progressbar" class="text-center">
-                                  <li class="active text-capitalize">Create Account</li>
-                                  <li class="noactive text-capitalize">Fill-up Form</li>
-                                  <li class="noactive text-capitalize">Finalized Form</li>
-                                  <li class="noactive text-capitalize">Check Result</li>
-                                </ul>
-                                <!-- start input fields for first column -->                        
-                                <div class="form-group row p-3">
-                                  <!-- type of form -->
-                                  <center><label class="text-uppercase typeform mb-4">Account Information</label></center>
-                                  <label for="" class="col-sm-3 col-form-label" >
-                                    <strong>Student LRN</strong>:
-                                  </label>
-                                  <div class="col-sm-9 mb-3">
-                                    <div class="input-group">
-                                      <input type="number" class="form-control" id="lrn" placeholder="LRN" autocomplete="off" />
-                                      <span class="input-group-text eye"><i class=" fas fa-user"></i></span>
-                                    </div>
-                                    <small class="guide">Please enter your LRN</small>
-                                  </div>
-
-                                  <label for="" class="col-sm-3 col-form-label">
-                                    <strong>Contact No.</strong>:
-                                  </label>
-                                  <div class="col-sm-9 mb-3">
-                                    <div class="input-group">
-                                      <input type="number" class="form-control" id="phonenum" placeholder="Phone number" autocomplete="off" />
-                                      <span class="input-group-text eye"><i class="fas fa-phone"></i></span>
-                                    </div>
-                                    <small class="guide">Your valid phone number. Example: [(+63) 900 0000 000]</small>
-                                  </div>
-
-                                  <label for="" class="col-sm-3 col-form-label">
-                                    <strong>E-mail Address</strong>:
-                                  </label>
-                                  <div class="col-sm-9 mb-3">
-                                    <div class="input-group">
-                                      <input type="text" class="form-control" id="email" placeholder="E-mail Address" autocomplete="off"/>
-                                      <span class="input-group-text eye"><i class="fas fa-envelope"></i></span>
-                                    </div>
-                                    <small class="guide">Your valid e-mail address, which you can access anytime.</small><br/><br/>
-                                    <div class="input-group">
-                                      <input type="text" class="form-control" id="remail" placeholder="Re-type your e-mail address again" autocomplete="off"/>
-                                      <span class="input-group-text eye" id=""><i class="fas fa-envelope"></i></span>
-                                    </div>
-                                    <small class="guide mb-3">Re-type your e-mail address again</small><br/>
-                                    <small class="guide"><span><b>Note</b></span>: You can only use one(1) e-mail address per online registration and this email is use to in order to login your account in SIMS iApply.</small>
-                                  </div>
-
-
-                                  <label for="" class="col-sm-3 col-form-label">
-                                    <strong>Password</strong>:
-                                  </label>
-                                  <div class="col-sm-9">
-                                    <div class="input-group">
-                                      <input type="password" class="form-control" id="pword" placeholder="Password" autocomplete="off" onpaste="false" aria-label="password" aria-describedby="basic-addon1"/>
-                                      <span class="input-group-text eye"><i class="fas fa-lock"></i></span>
-                                    </div>
-                                    <small class="guide mb-5">Use a very strong password and remember it always</small><br/>
-                                    <div class="pword-requirements">
-                                      <ul>
-                                        <li class="lowercase"><span></span> Must contain at least <b>one lowercase letter</b></li>
-                                        <li class="uppercase"><span></span> Must contain at least <b>one uppercase letter</b></li>
-                                        <li class="hasNum"><span></span> Must contain at least <b>one number</b></li>
-                                        <li class="hasSpecialChar"><span></span> Must contain at least <b>one special characters</b></li>
-                                        <li class="hasEightchar"><span></span> Minimum of <b>eight (8) characters</b></li>
-                                      </ul>
-                                    </div>
-                                    <div class="input-group mt-3" id="show_hide_password">
-                                      <input type="password" class="form-control" id="repword" placeholder="Re-type your password again" autocomplete="off" onpaste="false" />
-                                      <a href="javascript:void(0)" class="input-group-text eye"><i class="fas fa-eye-slash"></i></a>
-                                    </div>
-                                    <small class="guide">Re-type your password again</small>
-                                  </div>
-                                </div> <!--end form group-->
-                                <div class="actions-btn mt-4 p-3">
-                                  <button type="button" onclick="cancel('signin')" class="btlogin btn btn-secondary btn-sm">Cancel</button>
-                                  <button type="button" id="step1" class="btn btn-success btn-sm float-end">
-                                    Next <i class=" fas fa-arrow-right"></i>
-                                  </button>
-                                </div>
-                              </div><!--card body column 2-->
-                            </div><!--card column 2-->
-                          <?php
-                        }
-                        else if($_GET['mode'] == 'fill_up') {
-                          ?>
-                            <div class="card">
-                              <div class="card-header f-header-col-2 p-1">
-                                <h5 class="mb-0 text-white p-2">Enrollment Form / 
-                                  <span>Fill-up Application Form</span>
-                                </h5>
-                              </div>
-                              <div class="card-body p-0">
-                              <!-- start progressbar -->
-                              <center>
-                                <div class="progress mt-5 mb-2" style="width: 90%;">
-                                  <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="15" 
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
-                                  </div>
-                                </div>
-                              </center>
-                              <ul id="progressbar" class="text-center">
-                                <li class="active text-capitalize">
-                                  <span class="hidden-xs">Create Account</span></li>
-                                <li class="active text-capitalize">
-                                  <span class="hidden-xs">Fill-up Form</span></li>
-                                <li class="noactive text-capitalize">
-                                  <span class="hidden-xs">Finalized Form<span></li>
-                                <li class="noactive text-capitalize">
-                                  <span class="hidden-xs">Check Result</span></li>
-                              </ul>
-                        
-                              <!-- start input fields for step2 -->
-                              <div class="form-group row p-2">
-                                <!-- type of form -->
-                                <center><label class="text-uppercase typeform mb-4">Applying For</label></center>
-                                <label for="" class="col-sm-3 col-form-label label">
-                                  <strong>Application Type</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <select class="form-select" id="applicType">
-                                    <option value="defaultSelected" selected>--SELECT--</option>
-                                    <option value="Freshman">Freshman</option>
-                                    <option value="Transfery">Transfery</option>
-                                    <option value="ALS">ALS</option>
-                                  </select>
-                                  <small class="guide">Select your application type</small>
-                                </div>
-
-                                <label for="" class="col-sm-3 col-form-label label">
-                                  <strong>Academic Year & Term</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <select class="form-select" id="academicYear">
-                                    <option value="defaultSelected" selected>--SELECT--</option>
-                                    <option value="2023-2024-1st Semester">2023-2024-1st Semester</option>
-                                    <option value="2023-2024-2nd Semester">2023-2024-2nd Semester</option>
-                                  </select>
-                                  <small class="guide">Select the academic year you applying for</small>
-                                </div>
-
-                                <label for="" class="col-sm-3 col-form-label label">
-                                  <strong>School Campus</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <input type="text" class="form-control" style="cursor: no-drop" value="<?php echo $_SESSION['campusSelected'];?>" id="campus" readonly/>
-                                  <small class="guide">This branch/campus is selected because you select this campus in qualification form as preferred campus. Make sure that the information you entered is true and correct.</small>
-                                </div>
-
-                                <label for="" class="col-sm-3 col-form-label label">
-                                  <strong>Strand</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <select class="form-select" id="strand">
-                                    <option value="defaultSelected" selected>--SELECT--</option>
-                                    <option value="Science, Technology, Engineering, and Mathematics (STEM)">
-                                      Science, Technology, Engineering, and Mathematics (STEM)
-                                    </option>
-                                    <option value="Accountancy, Business and Management (ABM)">
-                                      Accountancy, Business and Management (ABM)
-                                    </option>
-                                    <option value="Humanities and Social Sciences (HUMSS)">
-                                      Humanities and Social Sciences (HUMSS)
-                                    </option>
-                                    <option value="Technical-Vocational Livelihood Information Communication and Technology (TVL-ICT)">
-                                      Technical-Vocational Livelihood Information Communication and Technology (TVL-ICT)
-                                    </option>
-                                    <option value="Technical-Vocational Livelihood Home Economics (TVL-HE)">
-                                      Technical-Vocational Livelihood Home Economics (TVL-HE)
-                                    </option>
-                                    <option value="General Academic Strand (GAS)">
-                                      General Academic Strand (GAS)
-                                    </option>
-                                  </select>
-                                  <small class="guide">Select your preferred strand</small>
-                                </div>
-
-                                <label for="" class="col-sm-3 col-form-label label">
-                                  <strong>Grade / Level</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <select class="form-select" id="gradeLevel">
-                                    <option value="defaultSelected" selected>--SELECT--</option>
-                                    <option value="Grade 11">Grade 11</option>
-                                    <option value="Grade 12">Grade 12</option>
-                                  </select>
-                                  <small class="guide">Select your grade level</small>
-                                </div>
-
-                                <!-- type of form -->
-                                <center><label class="text-uppercase typeform mb-4">Personal Information</label></center>
-
-                                <label for="firstname" class="col-sm-3 col-form-label">
-                                  <strong>First Name</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <input type="text" class="form-control" id="fname" placeholder="First Name" autocomplete="off"/>
-                                  <small class="guide">Your complete first name based on your PSA birth certificate</small>
-                                </div>
-
-                                <label for="lastname" class="col-sm-3 col-form-label">
-                                  <strong>Last Name</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <input type="text" class="form-control" id="lname" placeholder="Last Name" autocomplete="off"/>
-                                  <small class="guide">Your complete last name based on your PSA birth certificate</small>
-                                </div>
-
-                                <label for="middlename" class="col-sm-3 col-form-label">
-                                  <strong>Middle Name</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <input type="text" class="form-control" id="mname" placeholder="Middle Name" autocomplete="off"/>
-                                  <div class="row">
-                                    <div class="col-6">
-                                      <label><strong>M.I</strong></label>
-                                      <input type="text" maxlength="1" id="MI" class="form-control" placeholder="S" />
-                                    </div>
-                                    <div class="col-6">
-                                      <label><strong>Ext.</strong></label>
-                                      <input type="text" maxlength="5" id="extname" class="form-control" placeholder="Jr., Sr. lll" />
-                                    </div>
-                                  </div>
-                                  <small class="guide">Your complete middle name, your middle initial and your extension name based on your PSA birth certificate (Leave it blank if not applicable to you)</small><br/>
-                                </div>                          
-
-                                <label for="" class="col-sm-3 col-form-label">
-                                  <strong>Date of Birth</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <div class="input-group">
-                                    <span class="input-group-text"><span class="age">Age</span> </span>
-                                    <input type="date" class="form-control" id="dob" name="dob"/>
-                                  </div>
-                                  <small class="guide">Select the month, day and year of your birth, or type it following this format: mm/dd/yyyy (Example: 03/24/2004)</small>
-                                </div>
-
-                                <label for="lastname" class="col-sm-3 col-form-label">
-                                  <strong>Place of Birth</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <input type="text" class="form-control" id="pob" placeholder="Place of Birth" autocomplete="off"/>
-                                  <small class="guide">Your complete place of birth based on your PSA birth certificate</small>
-                                </div>
-
-                                <label for="" class="col-sm-3 col-form-label label">
-                                  <strong>Gender</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3" data-input-id="gender">
-                                  <div class="form-control" id="selectedGender">
-                                    <label class="radio">
-                                      <input type="radio" name="gender" class="male"/> Male
-                                    </label>&nbsp;&nbsp;&nbsp;
-                                    <label class="radio">
-                                      <input type="radio" name="gender" class="female"/> Female
-                                    </label>&nbsp;&nbsp;&nbsp;
-                                    <label class="radio">
-                                      <input type="radio" name="gender" class="others"/> Others
-                                    </label>
-                                    <input type="hidden" id="gender" class="gender"/>
-                                  </div>
-                                  <small class="guide">Please select your gender</small>
-                                </div>
-
-                                <label for="" class="col-sm-3 col-form-label label">
-                                  <strong>Civil Status</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <select class="form-select" id="civilStatus">
-                                    <option value="defaultSelected" selected>--SELECT--</option>
-                                    <option value="Single">Single</option>
-                                    <option value="Married ">Married </option>
-                                    <option value="Divorced ">Divorced </option>
-                                    <option value="Widowed  ">Widowed  </option>
-                                  </select>
-                                  <small class="guide">Select your civil / marital status </small>
-                                </div>
-
-                                <label for="" class="col-sm-3 col-form-label">
-                                  <strong>Province / Region</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <input type="text" class="form-control" id="province" placeholder="Province / Region" autocomplete="off"/>
-                                  <small class="guide">Please enter your province or region</small>
-                                </div>
-
-                                <label for="" class="col-sm-3 col-form-label">
-                                  <strong>City / Municipality</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <input type="text" class="form-control" id="city" placeholder="City" autocomplete="off"/>
-                                  <small class="guide">Please enter your city</small>
-                                </div>
-
-                                <label for="" class="col-sm-3 col-form-label">
-                                  <strong>Address</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <input type="text" class="form-control" id="address" placeholder="Address" autocomplete="off"/>
-                                  <small class="guide">Your complete current address based on your PSA birth certificate. Example: [Ph7, Blk3, Lot24 Demacia St. Brgy. Summon]</small>
-                                </div>
-
-                                <label for="" class="col-sm-3 col-form-label">
-                                  <strong>Nationality</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <input type="text" class="form-control" id="nationality" placeholder="Nationality" autocomplete="off"/>
-                                  <small class="guide">Please enter your nationality</small>
-                                </div>
-
-                                <label for="" class="col-sm-3 col-form-label">
-                                  <strong>Religion</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <input type="text" class="form-control" id="religion" placeholder="Religion" autocomplete="off"/>
-                                  <small class="guide">Please enter your religion</small>
-                                </div>
-
-                                <label for="" class="col-sm-3 col-form-label">
-                                  <strong>Ethnicity</strong>:
-                                </label>
-                                <div class="col-sm-9 mb-3">
-                                  <input type="text" class="form-control" id="ethnicity" placeholder="Ethnicity" autocomplete="off"/>
-                                  <small class="guide">Your ethnicity (Leave it blank if not applicable to you)</small>
-                                </div>
-                              </div><!--end form inputs-->
-
-                              <div class="actions-btn mt-4 p-3">
-                                <button type="button" onclick="cancel('signin')" class="btlogin btn btn-secondary btn-sm">Cancel</button>
-                                <button type="button" id="step2" class="btn btn-success btn-sm float-end">
-                                  Continue <i class=" fas fa-arrow-right"></i>
-                                </button>
-                              </div>
-                            </div><!--card body column 2-->
-                          </div><!--card column 2-->
-                          <?php
-                        }
-                      ?>  
-                    </form>
-                  </div>
-                </div><!--row-->
-              </div><!--end preregister box-->
-            </div><!--auth wrapper-->
+                  </form> 
+                </div><!--card body-->
+              </div><!--card-->
+            </div><!--End login box-->
           <?php
         }
       }
@@ -937,6 +901,49 @@ if(isset($_SESSION['campusSelected'])) {
   //  RE-USABLE  FUNCTION
   //======================
 
+  //check submitted documents
+  function subDoc(value) {
+    if(value === 'Good Moral') {
+      //alert(value);
+      $('#good_moral').val(value);
+    }
+    else if(value === 'Card') {
+      //alert(value);
+      $('#card').val(value);
+    }
+    else if(value === 'Form 137') {
+      //alert(value);
+      $('#form_137').val(value);
+    }
+    else if(value === 'PSA') {
+      //alert(value);
+      $('#psa').val(value);
+    }
+    else if(value === 'ID') {
+      //alert(value);
+      $('#id').val(value);
+    }
+    else if(value === 'PE Shirt') {
+      //alert(value);
+      $('#peShirt').val(value);
+    }
+    else if(value === 'Waiver') {
+      //alert(value);
+      $('#waiver').val(value);
+    }
+    else if(value === 'Uniform') {
+      //alert(value);
+      $('#uniform').val(value);
+    }
+    else if(value === 'Allowance') {
+      //alert(value);
+      $('#allowance').val(value);
+    }
+    else if(value === 'Document Filed') {
+      //alert(value);
+      $('#docuFiled').val(value);
+    } 
+  }
   //to check fields val
   function isEmpty(field) {
     return field === '';
@@ -1004,7 +1011,7 @@ if(isset($_SESSION['campusSelected'])) {
   function validateSelectField(fieldId) {
     var field = $('#' + fieldId);
     var fieldInput = field.val();
-    if(fieldInput === 'defaultSelected') {
+    if(fieldInput === '') {
       field.addClass('is-invalid');
       field.removeClass('is-valid');
     } else {
@@ -1056,39 +1063,6 @@ if(isset($_SESSION['campusSelected'])) {
     });
   }
 
-  //onchange photo
-  function readURL(input) {
-    if(input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-          $('.image-upload-wrap').hide();
-
-          $('.file-upload-image').attr('src', e.target.result);
-          $('.file-upload-content').show();
-
-          $('.image-title').html(input.files[0].name);
-      };
-      reader.readAsDataURL(input.files[0]);
-    } else {
-      removeUpload();
-    }
-  }
-
-  //to remove selected photo
-  function removeUpload() {
-    $('.file-upload-input').replaceWith($('.file-upload-input').clone());
-    $('.file-upload-content').hide();
-    $('.image-upload-wrap').show();
-  }
-  //drag and drop down photo
-  $('.image-upload-wrap').bind('dragover', function () {
-    $('.image-upload-wrap').addClass('image-dropping');
-  });
-  $('.image-upload-wrap').bind('dragleave', function () {
-    $('.image-upload-wrap').removeClass('image-dropping');
-  });
-
-
   //==============================
   // BUTTON ACTION->DATA HOLDER
   //==============================
@@ -1098,19 +1072,6 @@ if(isset($_SESSION['campusSelected'])) {
     /*------------------------
     QUALIFICATION FORM VALIDATIONS
     --------------------------*/
-
-    $('.seeSample').on('click', function(e) {
-      e.preventDefault();
-      Swal.fire({
-        title: 'Sample Photo:',
-        html: '<img src="resources/images/general/sample.jpg" class="p-2 img-thumbnail img-responsive" width="150">',
-        confirmButtonText: 'OK',
-        confirmButtonColor: '#996515',
-        allowEscapeKey : false,
-        allowOutsideClick: false
-      });
-    });
-
     //validate all dropdown selection 
     $('#relationship').on('change', function() {
       validateSelectField('relationship');
@@ -1259,7 +1220,7 @@ if(isset($_SESSION['campusSelected'])) {
                     url: "assets/api/temp_data.php",
                     data: { preferredCampus: preferredCampus },
                     success: function(key) {
-                      window.location.href = 'online_application?at=' + '<?=$_GET['at']?>&mode=create_acct';
+                      window.location.href = 'online_application?at=' + '<?=$_GET['at']?>&mode=fill_up';
                     }
                   });
                 }, 1000);
@@ -1271,198 +1232,114 @@ if(isset($_SESSION['campusSelected'])) {
       }
     });
 
+    $('#dob').on('change', function() {
+	    validateSelectField('dob');
+	  });
+	  //auto calute the user age depending on the date
+	  calculateAge('#dob', '.age');
 
-    /*------------------------
-    CREATE ACCOUNT FORM VALIDATIONS
-    --------------------------*/
-    //if password input focus show password requirement
-    $('#pword').on('focus', function() { $('.pword-requirements').slideDown(); }); //onfocus pword show pword requirement                        
-    $('#pword').on('blur', function() {  $('.pword-requirements').slideUp(); }); //hide
-                                 
-    //password requirements
-    $('#pword').on('keyup', function() {
-      var pword = $(this).val();
-      //has lowercase
-      if(pword.match(/[a-z]/g)) {
-        $('.lowercase').addClass('activeli');
-        $('.lowercase').removeClass('inactiveli');
-      } else {
-        $('.lowercase').addClass('inactiveli');
-        $('.lowercase').removeClass('activeli');
-      }
-      //has uppercase
-     if(pword.match(/[A-Z]/g)) {
-        $('.uppercase').addClass('activeli');
-        $('.uppercase').removeClass('inactiveli');
-      } else {
-        $('.uppercase').addClass('inactiveli');
-        $('.uppercase').removeClass('activeli');
-      }
-      //has number
-      if(pword.match(/[0-9]/g)) {
-        $('.hasNum').addClass('activeli');
-        $('.hasNum').removeClass('inactiveli');
-      } else {
-        $('.hasNum').addClass('inactiveli');
-        $('.hasNum').removeClass('activeli');
-      }
-      //has special characters
-      if(pword.match(/[!@#$%^&*]/g)) {
-        $('.hasSpecialChar').addClass('activeli');
-        $('.hasSpecialChar').removeClass('inactiveli');
-      } else {
-        $('.hasSpecialChar').addClass('inactiveli');
-        $('.hasSpecialChar').removeClass('activeli');
-      }
-      //has minimum 8 char
-      if(pword.length == 8 || pword.length > 8) {
-        $('.hasEightchar').addClass('activeli');
-        $('.hasEightchar').removeClass('inactiveli');
-        $('#pword').addClass('');
-        $('#pword').removeClass('is-invalid');         
-      } else {
-        $('.hasEightchar').addClass('inactiveli');
-        $('.hasEightchar').removeClass('activeli');
-        $('#pword').addClass('is-invalid');
-        $('#pword').removeClass('');
-      } 
-      // validateInput($('#pword'), $('#pword'));
-    });
-
-    //hide and show password
-    $("#show_hide_password a").on('click', function(event) {
-      event.preventDefault();
-      if($('#show_hide_password input').attr("type") == "text"){
-        $('#show_hide_password input').attr('type', 'password');
-        $('#show_hide_password i').addClass( "fa-eye-slash" );
-        $('#show_hide_password i').removeClass( "fa-eye" );
-      } else if($('#show_hide_password input').attr("type") == "password"){
-        $('#show_hide_password input').attr('type', 'text');
-        $('#show_hide_password i').removeClass( "fa-eye-slash" );
-        $('#show_hide_password i').addClass( "fa-eye" );
-      }
-    });
-
-
-    $('#step1').on('click', function(e) {
+    $('#submit').on('click', function(e) {
       e.preventDefault();
-      var lrn = $('#lrn').val();
-      var phonenum = $('#phonenum').val();
-      var useremail = $('#email').val();
-      var userpword = $('#pword').val();
+      //alert("test");
+      const dof = $('#dateRegistration').val();
+      let gradeLevel = $('#gradeLevel').val();
+      let schoolYear  = $('#schoolYear').val();
+      let semester = $('#semester').val();
+      const campus = $('#campus').val();
+      let strand = $('#strand').val();
+      let lrn = $('#lrn').val();
+      let lastName = $('#lastName').val();
+      let firstName = $('#firstName').val();
+      let middleName = $('#middleName').val();
+      let extName = $('#extName').val();
+      let gender = $('#gender').val();
+      let dob = $('#dob').val();
+      let pob = $('#pob').val();
+      let nationality = $('#nationality').val();
+      let religion = $('#religion').val();
+      let address = $('#address').val();
+      let brgy = $('#baranggay').val();
+      let city = $('#city').val();
+      let province = $('#province').val();
+      let contactNo = $('#contactNo').val();
 
-      var userRemail = $('#remail').val();
-      var userRepword = $('#repword').val();
+      let completionDate = $('#completionDate').val();
+      let completerAs = $('#completerAs').val();
+      let fsn = $('#formerSchoolName').val();
+      let fan = $('#formerAdviserName').val();
+      let fs = $('#formerSectionName').val();
 
-      //check if input fields empty or not
-      if(isEmpty(lrn) || isEmpty(phonenum) || isEmpty(useremail) || isEmpty(userRemail) || isEmpty(userpword) || isEmpty(userRepword)) {
+      let lnFather = $('#lnFather').val();
+      let fnFather = $('#fnFather').val();
+      let mnFather = $('#mnFather').val();
+      let occupationFather = $('#occupationFather').val();
+
+      let lnMother = $('#lnMother').val();
+      let fnMother = $('#fnMother').val();
+      let mnMother = $('#mnMother').val();
+      let occupationMother = $('#occupationMother').val();
+
+      let lnGuardian = $('#lnGuardian').val();
+      let fnGuardian = $('#fnGuardian').val();
+      let mnGuardian = $('#mnGuardian').val();
+      let rsGuardian = $('#rsGuardian').val();
+      let occupationGuardian = $('#occupationGuardian').val();
+      let cnGuardian = $('#cnGuardian').val();
+
+      let referralName = $('#referralName').val();
+      let referralNumber = $('#referralNumber').val();
+
+      //alert(dof); isEmpty(test) &&
+      if(
+        isEmpty(gradeLevel) && 
+        isEmpty(schoolYear) && 
+        isEmpty(semester) && 
+        isEmpty(strand) && 
+        isEmpty(lrn) && 
+        isEmpty(lastName) && 
+        isEmpty(firstName) && 
+        isEmpty(gender) && 
+        isEmpty(dob) && 
+        isEmpty(pob) && 
+        isEmpty(nationality) && 
+        isEmpty(religion) && 
+        isEmpty(address) && 
+        isEmpty(brgy) && 
+        isEmpty(city) && 
+        isEmpty(province) && 
+        isEmpty(contactNo) && 
+        isEmpty(completionDate) && 
+        isEmpty(completerAs) && 
+        isEmpty(fsn) && 
+        isEmpty(fan) && 
+        isEmpty(fs) && 
+        isEmpty(lnFather) && 
+        isEmpty(fnFather) && 
+        isEmpty(occupationFather) && 
+        isEmpty(lnMother) && 
+        isEmpty(fnMother) && 
+        isEmpty(occupationMother) && 
+        isEmpty(lnGuardian) && 
+        isEmpty(fnGuardian) && 
+        isEmpty(rsGuardian) && 
+        isEmpty(occupationGuardian) && 
+        isEmpty(cnGuardian)
+      ) 
+      {
+        //alert("Empty");
         Swal.fire({
           title: "Warning",
           text: "All fields is required!",
           icon: "error",
           confirmButtonText: "Close",
-          confirmButtonColor: "#cc3f5a",
+          confirmButtonColor: "#5f76e8",
           showConfirmButton: true,
           allowEscapeKey : false,
           allowOutsideClick: false
-        }).then((resultOne) => {
-          if(resultOne.isConfirmed) {
-            $('#lrn').addClass('is-invalid');
-            $('#phonenum').addClass('is-invalid');
-            $('#email').addClass('is-invalid');
-            $('#remail').addClass('is-invalid');
-            $('#pword').addClass('is-invalid');
-            $('#repword').addClass('is-invalid');
-          }
         });
-      } else {
-        //check if retype email is match to first email
-        if(!userRemail.match(useremail)) {
-        Swal.fire({
-          title: "Warning",
-          text: "E-mail and Re-type e-mail is not match!",
-          icon: "error",
-          confirmButtonText: "Close",
-          confirmButtonColor: "#cc3f5a",
-          showConfirmButton: true,
-          allowEscapeKey : false,
-          allowOutsideClick: false
-        }).then((resultTwo) => {
-          if(resultTwo.isConfirmed) {
-            $('#remail').addClass('is-invalid');
-            $('#remail').removeClass('is-valid');
-          }
-        });
-        } else {
-          //check if repassword  is match to first passowrd
-          if(!userRepword.match(userpword)) {
-            Swal.fire({
-              title: "Warning",
-              text: "Password and Re-type password is not match!",
-              icon: "error",
-              confirmButtonText: "Close",
-              confirmButtonColor: "#cc3f5a",
-              showConfirmButton: true,
-              allowEscapeKey : false,
-              allowOutsideClick: false
-            }).then((resultThree) => {
-              if(resultThree.isConfirmed) {
-                $('#repword').addClass('is-invalid');
-                $('#repword').removeClass('is-valid');
-                $('#repword').focus();
-              }
-            });   
-          } else {
-            //success here..
-            Swal.fire({
-              title: "Confirm your Information",
-              html: "Submission of false information will disqualify the applicant from enrollment/admission in Golden Minds.<br/><br/>Is this true and correct?",
-              icon: "info",
-              showConfirmButton: true,
-              confirmButtonText: "Okay",
-              confirmButtonColor: "#5f76e8",
-              showCancelButton: true,
-              cancelButtonText: "Cancel",
-              showLoaderOnConfirm: true,
-              allowEscapeKey : false,
-              allowOutsideClick: false,
-                preConfirm: (response) => { 
-                  if(!response) {  return false; }
-                  else {
-                    return new Promise(function(resolve) { 
-                      setTimeout(function () { 
-                        //send ajax request to stored the user input in session
-                        $.ajax({
-                          method: "POST",
-                          url: "assets/api/temp_data.php",
-                          data: {
-                            lrn: lrn,
-                            phonenum: phonenum,
-                            useremail: useremail,
-                            userpword: userpword
-                          },
-                          success: function(result) {
-                            //redirect to next step
-                            // alert(result);
-                            // location.reload();
-                            window.location.href = 'online_application?at=' + '<?=$_GET['at']?>&mode=fill_up';
-                          },
-                          error: function(error) {
-                            alert(error);
-                          }
-                        });
-                      }, 1000);
-                    });
-                  }
-                },
-                allowOutsideClick: () => !Swal.isLoading()
-            });
-          }
-        }
-      }    
-    });
+      }
 
-    //step2 action button->validation here
-    
+    });
+   
   }); //end of document->ready->function                             
 </script>
