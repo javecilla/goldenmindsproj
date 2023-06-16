@@ -11,45 +11,48 @@ if(isset($_SESSION['campusSelected'])) {
   <title>Online Application - Golden Minds Bulacan</title>
   <?php require_once __DIR__ . '/components/links.php'; ?>
   <style>
+    .btt_btn {
+      padding: 10px!important;
+      border-radius: 50%; 
+      background-color: #996515; 
+      color: #fff;
+      opacity: .6;
+    }
+    .btt_btn:hover {
+      color: #fff;
+      opacity: .7;
+    }
     .center {
       display: flex!important;
       justify-content: center!important;
       align-items: center!important;
     }
-
-
     .qualifications_card {
       width: 97%;
       border-bottom: 2px solid #996515;
       text-align: justify; 
       text-justify: inter-word;
     }
-
     .qualifications_card .quali-head-title {
       font-size: 16px;
     }
-
     .quali-label, .quali-input, .quali-select {
       font-size: 14px!important;
       color: #212529!important;
       opacity: .8;
     }
-
     input[type="radio"],
     label.radio {
       cursor: pointer;
     }
-
     label.radio:hover {
       text-decoration: underline;
     }
-
     p.snote {
       font-size: 15px!important;
       color: #212529!important;
       opacity: .8;
     }
-
     .preregister-box {
       display: flex;
       justify-content: center;
@@ -57,129 +60,12 @@ if(isset($_SESSION['campusSelected'])) {
       width: 95%;
       margin-top: 4%;
     }
-    .f-card {
-      border: 1px solid #996515!important;
-    }
-
-    .f-header {
-      background: #996515;
-    }
-
-    p.reminderp, p.infomationp {
-      font-size: 13px!important;
-    }
-
-    .s-card {
-      border-top: 5px solid #FAD419!important;
-      margin-top: -3%!important;
-    }
-
-    .t-card {
-      border-top: 5px solid #5BCE43!important;
-      margin-top: -3%!important;
-    }
-    .date-reg-label {
-      font-size: 13px;
-    }
-
-    .date-reg {
-      font-size: 13px;
-    }
-
-    .f-header-col-2 {
-      background: #5F76E8;
-    }
-
-    /*progressbar*/
-    #progressbar {
-        margin-bottom: 30px;
-        overflow: hidden;
-        /*CSS counters to number the steps*/
-        counter-reset: step;
-    }
-    #progressbar li {
-        list-style-type: none;
-        color: #868e96;
-        text-transform: uppercase;
-        font-size: 13px!important;
-        float: left;
-        position: relative;
-        letter-spacing: 1px;
-
-        width: 24%;
-    }
-    #progressbar li:before {
-        content: counter(step);
-        counter-increment: step;
-        width: 24px;
-        height: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        line-height: -10px;
-                    
-        font-size: 12px;
-        color: #868e96;
-        background: #fff;
-        border-radius: 25px;
-        margin: 0 auto 8px auto;
-    }
-    /*marking active/completed steps blue*/
-    /*The number of the step and the connector before it = blue*/
-    #progressbar li.active:before, #progressbar li.active:after {
-        background: #5F76E8!important;
-        fill: #5F76E8!important;
-        color: white;
-    }
-    #progressbar li.noactive:before, #progressbar li.noactive:after {
-        background: gray!important;
-        fill: gray!important;
-        color: white;
-        opacity: .3;
-    }
-    .progress {
-        height: 5px;
-    }
-
-    .pword-requirements {
-        display: none;
-    }
-    .pword-requirements ul{
-      padding: 0;
-      margin: 0 0 10px;
-      list-style-type: none;
-    }
-    .pword-requirements ul li {
-        font-size: 13px!important;
-        color: red;
-    }
-
-    .pword-requirements ul li.activeli {
-        color: green;
-    }
-
-    .pword-requirements ul li span:before {
-        content: "X";
-    }
-
-    .pword-requirements ul li.activeli span:before {
-        content: "✓";
-        
-    }
-    .eye {
-        background: transparent!important;
-    }
-    .eye:hover {
-        color: gray!important;
-        opacity: .8!important;
-    }
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
       -webkit-appearance: none;
       margin: 0;
     }
-
     /* Firefox */
     input[type=number] {
       -moz-appearance: textfield;
@@ -386,7 +272,7 @@ if(isset($_SESSION['campusSelected'])) {
                       <div class="col-lg-6">
                         <label class="text-uppercase typeform mb-4">Applying For</label>
                         <div class="">
-                          <label class="mb-1 quali-label"><strong>• Grade Level</strong></label>
+                          <label class="mb-1 quali-label"><strong>• Grade Level <span class="text-danger">*</span></strong></label>
                           <select class="form-select quali-select" id="gradeLevel">
                             <option value="" selected>-- SELECT --</option>
                             <option value="Grade 11">Grade 11</option>
@@ -395,7 +281,7 @@ if(isset($_SESSION['campusSelected'])) {
                         </div>
 
                         <div class="">
-                          <label class="mb-1 mt-3 quali-label"><strong>• School Year</strong></label>
+                          <label class="mb-1 mt-3 quali-label"><strong>• School Year <span class="text-danger">*</span></strong></label>
                           <select class="form-select quali-select" id="schoolYear">
                             <option value="" selected>-- SELECT --</option>
                             <option value="2023-2024">2023-2024</option>
@@ -405,7 +291,7 @@ if(isset($_SESSION['campusSelected'])) {
                         </div>
 
                         <div class="mt-3">
-                          <label class="mb-1 quali-label"><strong>• Semester</strong></label>
+                          <label class="mb-1 quali-label"><strong>• Semester <span class="text-danger">*</span></strong></label>
                           <select class="form-select quali-select" id="semester">
                             <option value="" selected>-- SELECT --</option>
                             <option value="1st Semester">1st Semester</option>
@@ -420,7 +306,7 @@ if(isset($_SESSION['campusSelected'])) {
                         </div>
 
                         <div class="mt-3">
-                          <label class="mb-1 quali-label"><strong>• Track/Strand</strong></label>
+                          <label class="mb-1 quali-label"><strong>• Track/Strand <span class="text-danger">*</span></strong></label>
                           <select class="form-select quali-select" id="strand">
                             <option value="" selected>-- SELECT --</option>
                             <option value="STEM">Science, Technology Engineering and Mathematics (STEM)</option>
@@ -433,37 +319,37 @@ if(isset($_SESSION['campusSelected'])) {
                         </div>
 
                         <div class="mt-3 mb-4">
-                          <label class="mb-1 quali-label"><strong>• LRN <span class="text-danger">*</span></strong> Leave it blank if not applicable to you</label>
+                          <label class="mb-1 quali-label"><strong>• LRN <span class="text-primary">*</span></strong> Leave it blank if not applicable to you</label>
                           <div class="form-control">
-                            <input type="text" class="form-control" id="lrn" placeholder="Enter your LRN"/>
+                            <input type="number" class="form-control" id="lrn" placeholder="Enter your LRN"/>
                           </div>
                         </div>
 
                         <label class="text-uppercase typeform mb-4">Personal Information</label>
                         <div class="row">
                           <div class="col-6 mt-2">
-                            <label class="mb-1 quali-label"><strong>• Last Name</strong></label>
+                            <label class="mb-1 quali-label"><strong>• Last Name <span class="text-danger">*</span></strong></label>
                             <input type="text" class="form-control" id="lastName"placeholder="Your Last Name"/>
                           </div>
                           <div class="col-6 mt-2">
-                            <label class="mb-1 quali-label"><strong>• First Name</strong></label>
+                            <label class="mb-1 quali-label"><strong>• First Name <span class="text-danger">*</span></strong></label>
                             <input type="text" class="form-control" id="firstName" placeholder="Your First Name"/>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-6 mt-3">
-                            <label class="mb-1 quali-label"><strong>• Middle Name</strong></label>
+                            <label class="mb-1 quali-label"><strong>• Middle Name <span class="text-primary">*</span></strong></label>
                             <input type="text" class="form-control" id="middleName" placeholder="Your Last Name"/>
                           </div>
                           <div class="col-6 mt-3">
-                            <label class="mb-2 quali-label"><strong>• Ext Name</strong></label>
+                            <label class="mb-2 quali-label"><strong>• Ext Name <span class="text-primary">*</span></strong></label>
                             <input type="text" class="form-control" id="extName"placeholder="Your First Name"/>
                           </div>
                           <label class="mb-1 guide"><strong><span class="text-danger">*</span></strong> Leave it blank if not applicable to you [Middle and/or Ext Name].</label>
                         </div>
 
                         <div class="mt-3 radio-group" data-input-id="gender">
-                          <label class="mb-1 quali-label"><strong>• Gender / Sex</strong></label>
+                          <label class="mb-1 quali-label"><strong>• Gender / Sex <span class="text-danger">*</span></strong></label>
                           <div class="form-control" id="isGender">
                             <label class="radio quali-label">
                               <input type="radio" name="gender" value="male"/> Male
@@ -476,16 +362,16 @@ if(isset($_SESSION['campusSelected'])) {
                         </div>
 
                         <div class="mt-3">
-                          <label class="mb-1 quali-label"><strong>• Date of Birth</strong></label>
+                          <label class="mb-1 quali-label"><strong>• Date of Birth <span class="text-danger">*</span></strong></label>
                           <div class="input-group">
                             <span class="input-group-text"><span class="age">Age: </span> </span>
                             <input type="date" class="form-control" id="dob" name="dob"/>
                           </div>
-                          <small class="guide"><span class="text-danger">*</span> Select the month, day and year of your birth, or type it following this format: mm/dd/yyyy (Example: 03/24/2004)</small>
+                          <small class="guide"><span class="text-danger">*</span> Select the month, day and year of your birth, or type it following this format: mm/dd/yyyy (Example: 24/03/2004)</small>
                         </div>
 
                         <div class="mt-3">
-                          <label class="mb-1 quali-label"><strong>• Place of Birth</strong></label>
+                          <label class="mb-1 quali-label"><strong>• Place of Birth <span class="text-danger">*</span></strong></label>
                           <input type="text" class="form-control" placeholder="Your Place of Birth" id="pob"/>
                           <small class="guide"><span class="text-danger">*</span> Your complete place of birth based on your PSA birth certificate</small>
                         </div>
@@ -493,11 +379,11 @@ if(isset($_SESSION['campusSelected'])) {
                         <div class="mt-3">
                           <div class="row">
                             <div class="col-6">
-                              <label class="mb-1 quali-label"><strong>• Nationality</strong></label>
+                              <label class="mb-1 quali-label"><strong>• Nationality <span class="text-danger">*</span></strong></label>
                               <input type="text" class="form-control" placeholder="Your Nationality" id="nationality"/>
                             </div>
                             <div class="col-6">
-                              <label class="mb-1 quali-label"><strong>• Religion</strong></label>
+                              <label class="mb-1 quali-label"><strong>• Religion <span class="text-danger">*</span></strong></label>
                               <input type="text" class="form-control" placeholder="Your Religion" id="religion"/>
                             </div>
                           </div>
@@ -505,29 +391,29 @@ if(isset($_SESSION['campusSelected'])) {
 
                         <label class="text-uppercase typeform mb-4 mt-4">Address and Contact Details</label>
                         <div class="mt-3">
-                          <label class="mb-2 quali-label"><strong>• Address </strong></label>
+                          <label class="mb-2 quali-label"><strong>• Address <span class="text-danger">*</span></strong></label>
                           <input type="text" class="form-control" placeholder="House no. Street Name" id="address"/>
                           <small class="guide"><span class="text-danger">*</span> Your complete current address based on your PSA birth certificate. Example: [Ph7, Blk3, Lot24 Demacia St.]</small>   
                         </div>
 
                         <div class="mt-3">
-                          <label class="mb-2 quali-label"><strong>• Baranggay</strong></label>
+                          <label class="mb-2 quali-label"><strong>• Baranggay <span class="text-danger">*</span></strong></label>
                           <input type="text" class="form-control" placeholder="Ex: Brgy. Sagabal" id="baranggay"/>
                         </div>
 
                         <div class="mt-3">
-                          <label class="mb-2 quali-label"><strong>• City / Municipality</strong></label>
+                          <label class="mb-2 quali-label"><strong>• City / Municipality <span class="text-danger">*</span></strong></label>
                           <input type="text" class="form-control" placeholder="Your City" id="city"/>
                         </div>
 
                         <div class="mt-3">
-                          <label class="mb-2 quali-label"><strong>• Province / Region</strong></label>
+                          <label class="mb-2 quali-label"><strong>• Province / Region <span class="text-danger">*</span></strong></label>
                           <input type="text" class="form-control" placeholder="Your Province" id="province"/>
                         </div>
 
                         <div class="mt-3">
-                          <label class="mb-2 quali-label"><strong>• Contact No. </strong></label>
-                          <input type="text" class="form-control" placeholder="Phone Number" id="contactNo"/>
+                          <label class="mb-2 quali-label"><strong>• Contact No. <span class="text-danger">*</span></strong></label>
+                          <input type="number" class="form-control" placeholder="Phone Number" id="contactNo"/>
                         </div>
                       </div> <!--end first column-->
 
@@ -540,24 +426,37 @@ if(isset($_SESSION['campusSelected'])) {
                         </div>
 
                         <div class="mt-3">
-                          <label class="mb-2 quali-label"><strong>• Completer as <br/><span class="text-danger"> *</span></strong> Please specify what type of completer are you</label>
+                          <label class="mb-2 quali-label"><strong>• Completer as <br/><span class="text-primary"> *</span></strong> Please specify what type of completer are you</label>
                           <select class="form-select quali-select" id="completerAs">
                             <option value="" selected>-- SELECT --</option>
-                            <option value="HSC">High School Completer</option>
-                            <option value="JHS_CG10">Junior High School Completer (Grade 10)</option>
-                            <option value="PEPTP">PEPT Passer</option>
-                            <option value="ALS">ALS A&E Passer</option>
+                            <option value="High School Completer">High School Completer</option>
+                            <option value="Junior High School Completer (Grade 10)">Junior High School Completer (Grade 10)</option>
+                            <option value="PEPT Passer">PEPT Passer</option>
+                            <option value="ALS A&E Passer">ALS A&E Passer</option>
                             <option value="Others">Others</option>
                           </select>
                         </div>
 
                         <div class="mt-3">
-                          <label class="quali-label mb-2"><strong>• Former School Name</strong></label>
+                          <label class="quali-label mb-2"><strong>• Former School Name <span class="text-danger"> *</span></strong></label>
                           <input type="text" class="form-control" placeholder="Last School Attended" id="formerSchoolName"/>
                         </div>
 
                         <div class="mt-3">
-                          <label class="quali-label mb-2"><small class="guide"><span class="text-danger">*</span> <strong>Note:</strong> Enter name of your former grade 10 teacher and section (For graduate High School and Junior High School)</small></label>
+                          <label class="quali-label mb-2"><strong>• Former School Address <span class="text-danger"> *</span></strong></label>
+                          <input type="text" class="form-control" placeholder="Last School Attended" id="formerSchoolAddress"/>
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="quali-label mb-2"><strong>• Grade 10 (GWA) <span class="text-danger"> *</span></strong></label>
+                          <input type="number" class="form-control" placeholder="Your G10 Average" id="g10gwa"/>
+                        </div>
+
+                        <div class="mt-3">
+                          <label class="quali-label mb-2"><small class="guide">
+                            <span class="text-primary">*</span> <strong>Note:</strong> 
+                            Enter name of your former grade 10 teacher and section 
+                            (For graduate High School and Junior High School). Leave it blank if not applicable to you.</small></label>
                           <div class="row">
                             <div class="col-6">
                               <input type="text" class="form-control" placeholder="Grade 10 Adviser"
@@ -572,7 +471,7 @@ if(isset($_SESSION['campusSelected'])) {
 
                         <label class="text-uppercase typeform mb-4 mt-4">Parents / Guardian Information</label>
                         <div class="mt-3">
-                          <label class="quali-label mb-2"><strong>• Father's Information</strong></label>
+                          <label class="quali-label mb-2"><strong>• Father's Information <span class="text-danger">*</span></strong></label>
                           <div class="row mt-1">
                             <div class="col-6">
                               <input type="text" class="form-control" placeholder="Last Name" 
@@ -596,7 +495,7 @@ if(isset($_SESSION['campusSelected'])) {
                         </div>
 
                         <div class="mt-3">
-                          <label class="quali-label mb-2"><strong>• Mother's Information</strong></label>
+                          <label class="quali-label mb-2"><strong>• Mother's Information <span class="text-danger">*</span></strong></label>
                           <div class="row mt-1">
                             <div class="col-6">
                               <input type="text" class="form-control" placeholder="Last Name" 
@@ -621,7 +520,7 @@ if(isset($_SESSION['campusSelected'])) {
 
                         <label class="text-uppercase typeform mb-4 mt-4">Contact Emergency Person</label>
                         <div class="mt-2">
-                          <label class="quali-label mb-2"><strong>• Guardian Information</strong></label>
+                          <label class="quali-label mb-2"><strong>• Guardian Information <span class="text-danger">*</span></strong></label>
                           <div class="row mt-1">
                             <div class="col-6">
                               <input type="text" class="form-control" placeholder="Last Name" 
@@ -655,7 +554,7 @@ if(isset($_SESSION['campusSelected'])) {
                         </div>
 
                         <label class="text-uppercase typeform mb-4 mt-4">Referral Person's Information</label><br/>
-                        <label class="guide"><span class="text-danger">*</span> <strong>Note:</strong> Enter your referral information thus Leave it blank if not applicable to you.</label>
+                        <label class="guide"><span class="text-primary">*</span> <strong>Note:</strong> Enter your referral information thus Leave it blank if not applicable to you.</label>
                         <div class="mt-2">
                           <div class="row mt-1">
                             <div class="col-6">
@@ -668,7 +567,7 @@ if(isset($_SESSION['campusSelected'])) {
                         </div>
 
                         <label class="text-uppercase typeform mb-4 mt-4">Documents</label><br/>
-                        <label class="guide"><span class="text-danger">*</span> <strong>Note:</strong> Please check the documents if you already have.</label>
+                        <label class="guide"><span class="text-primary">*</span> <strong>Note:</strong> Please check the documents if you already have.</label>
                         <div class="mt-2">
                           <div class="row">
                             <div class="col-4">
@@ -890,6 +789,12 @@ if(isset($_SESSION['campusSelected'])) {
       require_once __DIR__ . '/components/404.php';
     }
     ?>
+
+      <div id ="back-to-top" style="display: none;">
+        <a class="p-0 btn btn-xs position-fixed top btt_btn" id="top" href="#top">
+          <i class="fa-solid fa-chevron-up" style="font-size: 20px"></i>
+        </a>
+      </div>
   
     <?php require_once __DIR__ . '/components/footer.php'; ?>
   </main>
@@ -1217,7 +1122,7 @@ if(isset($_SESSION['campusSelected'])) {
                   //send ajax request to preregister the applicant
                   $.ajax({
                     method: "POST",
-                    url: "assets/api/temp_data.php",
+                    url: "assets/api/data/temp_data.php",
                     data: { preferredCampus: preferredCampus },
                     success: function(key) {
                       window.location.href = 'online_application?at=' + '<?=$_GET['at']?>&mode=fill_up';
@@ -1248,10 +1153,15 @@ if(isset($_SESSION['campusSelected'])) {
       const campus = $('#campus').val();
       let strand = $('#strand').val();
       let lrn = $('#lrn').val();
+
       let lastName = $('#lastName').val();
       let firstName = $('#firstName').val();
       let middleName = $('#middleName').val();
       let extName = $('#extName').val();
+      //concatenate to the student name to get their full name
+      var studentFullName = lastName + ', ' + firstName + ', ' + middleName + '. ' + extName;
+      //alert(studentFullName);
+
       let gender = $('#gender').val();
       let dob = $('#dob').val();
       let pob = $('#pob').val();
@@ -1266,22 +1176,31 @@ if(isset($_SESSION['campusSelected'])) {
       let completionDate = $('#completionDate').val();
       let completerAs = $('#completerAs').val();
       let fsn = $('#formerSchoolName').val();
+      let fsa = $('#formerSchoolAddress').val();
+      let gwa = $('#g10gwa').val();
       let fan = $('#formerAdviserName').val();
       let fs = $('#formerSectionName').val();
+      
 
       let lnFather = $('#lnFather').val();
       let fnFather = $('#fnFather').val();
       let mnFather = $('#mnFather').val();
+      var fatherFullName = lnFather + ', ' + fnFather + ', ' + mnFather + '. ';
+      //alert(fatherFullName);
       let occupationFather = $('#occupationFather').val();
 
       let lnMother = $('#lnMother').val();
       let fnMother = $('#fnMother').val();
       let mnMother = $('#mnMother').val();
+      var motherFullName = lnMother + ', ' + fnMother + ', ' + mnMother + '. ';
+      //alert(motherFullName);
       let occupationMother = $('#occupationMother').val();
 
       let lnGuardian = $('#lnGuardian').val();
       let fnGuardian = $('#fnGuardian').val();
       let mnGuardian = $('#mnGuardian').val();
+      var guardianFullName = lnGuardian + ', ' + fnGuardian + ', ' + mnGuardian + '. ';
+      //alert(guardianFullName);
       let rsGuardian = $('#rsGuardian').val();
       let occupationGuardian = $('#occupationGuardian').val();
       let cnGuardian = $('#cnGuardian').val();
@@ -1289,7 +1208,44 @@ if(isset($_SESSION['campusSelected'])) {
       let referralName = $('#referralName').val();
       let referralNumber = $('#referralNumber').val();
 
-      //alert(dof); isEmpty(test) &&
+      //initialized object and store all data objFormData
+      const objFormData = {
+        dof: dof,
+        gradeLevel: gradeLevel,
+        schoolYear: schoolYear,
+        semester: semester,
+        campus: campus,
+        strand: strand,
+        lrn: lrn,
+        studentFullName: studentFullName,
+        gender: gender,
+        dob: dob,
+        pob: pob,
+        nationality: nationality,
+        religion: religion,
+        address: address,
+        brgy: brgy,
+        city: city,
+        province: province,
+        contactNo: contactNo,
+        completionDate: completionDate,
+        completerAs: completerAs,
+        fsn: fsn,
+        fsa: fsa,
+        fan: fan,
+        fs: fs,
+        fatherFullName: fatherFullName,
+        occupationFather: occupationFather,
+        motherFullName: motherFullName,
+        occupationMother: occupationMother,
+        guardianFullName: guardianFullName,
+        rsGuardian: rsGuardian,
+        occupationGuardian: occupationGuardian,
+        cnGuardian: cnGuardian,
+        referralName: referralName,
+        referralNumber: referralNumber
+      };
+
       if(
         isEmpty(gradeLevel) && 
         isEmpty(schoolYear) && 
@@ -1310,7 +1266,8 @@ if(isset($_SESSION['campusSelected'])) {
         isEmpty(contactNo) && 
         isEmpty(completionDate) && 
         isEmpty(completerAs) && 
-        isEmpty(fsn) && 
+        isEmpty(fsn) &&
+        isEmpty(fsa) && 
         isEmpty(fan) && 
         isEmpty(fs) && 
         isEmpty(lnFather) && 
@@ -1329,17 +1286,55 @@ if(isset($_SESSION['campusSelected'])) {
         //alert("Empty");
         Swal.fire({
           title: "Warning",
-          text: "All fields is required!",
-          icon: "error",
-          confirmButtonText: "Close",
-          confirmButtonColor: "#5f76e8",
+          html: "Please ensure that you fill up all the field contains red asterisk. Double check your form.",
+          icon: "warning",
+          confirmButtonText: "Okay",
+          confirmButtonColor: "#996515",
           showConfirmButton: true,
           allowEscapeKey : false,
           allowOutsideClick: false
         });
       }
-
-    });
-   
+      else {
+        //alert("success");
+        Swal.fire({
+          title: "Confirm your Information",
+          html: "Submission of false information will disqualify the applicant from enrollment/admission in Golden Minds.<br/><br/>Is this true and correct?",
+          icon: "info",
+          showConfirmButton: true,
+          confirmButtonText: "Okay",
+          confirmButtonColor: "#5f76e8",
+          showCancelButton: true,
+          cancelButtonText: "Cancel",
+          showLoaderOnConfirm: true,
+          allowEscapeKey : false,
+          allowOutsideClick: false,
+          preConfirm: (response) => {
+            if(!response) { return false; }
+            else 
+            {
+              return new Promise(function(resolve) { 
+                setTimeout(function () {
+                  //alert("success");
+                  //send ajax request to the server
+                  $.ajax({
+                    method: "POST",
+                    url: "assets/api/actions/admission.contr.php",
+                    data: { objFormData: objFormData },
+                    success: function(result) {
+                      console.log(result);
+                    },
+                    error: function(error) {
+                      alert(error);
+                    }
+                  });
+                }, 3000); //set 3s loading to process data in server
+              }); //Promise
+            } //end else
+          }, //preconfirm
+          allowOutsideClick: () => !Swal.isLoading()
+        }); //swal
+      } //else
+    }); //submit
   }); //end of document->ready->function                             
 </script>
