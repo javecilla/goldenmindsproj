@@ -12,9 +12,74 @@
         </a>
       </div>
     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
-    </button>       
+    </button>  -->
+    <style>
+      input[type="checkbox"] {
+        -webkit-appearance: none;
+        visibility: hidden!important;
+        display: none!important;
+        background: transparent;
+      }
+      .bar {
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        justify-content: right;
+        opacity: .8;
+      }
+      .bar .mid {
+        height: 3px;
+        width: 28px;
+        background: #000;
+        border-radius: 50px;
+        position: absolute;
+        transition: 0.3s ease;
+      }
+      .bar .top {
+        bottom: 3px;
+        height: 3px;
+        width: 28px;
+        background: #000;
+        border-radius: 50px;
+        position: absolute;
+        transition: 0.3s ease;
+      }
+      .bar .bot {
+        top: 7px;
+        height: 3px;
+        width: 28px;
+        background: #000;
+        border-radius: 50px;
+        position: absolute;
+        transition: 0.3s ease;
+      }
+      input[type="checkbox"]:checked ~ .bar .top {
+        transform: rotate(-45deg);
+        width: 27px;
+        transform-origin: right;
+        top: -10px;
+      }
+      input[type="checkbox"]:checked ~ .bar .bot {
+        transform: rotate(45deg);
+        width: 27px;
+        transform-origin: right;
+        top: 10px;
+      }
+      input[type="checkbox"]:checked ~ .bar .mid {
+        transform: translateX(20px);
+        opacity: 0;
+      }
+    </style>
+    <label class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <input type="checkbox" />
+      <div class ="bar">
+        <span class="top"></span>
+        <span class="mid"></span>
+        <span class="bot"></span>
+      </div>
+    </label>   
     <div class="col-9">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">

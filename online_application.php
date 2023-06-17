@@ -352,10 +352,10 @@ if(isset($_SESSION['campusSelected'])) {
                           <label class="mb-1 quali-label"><strong>• Gender / Sex <span class="text-danger">*</span></strong></label>
                           <div class="form-control" id="isGender">
                             <label class="radio quali-label">
-                              <input type="radio" name="gender" value="male"/> Male
+                              <input type="radio" name="gender" value="Male"/> Male
                             </label>&nbsp;&nbsp;
                             <label class="radio quali-label">
-                              <input type="radio" name="gender" value="female"/> Female
+                              <input type="radio" name="gender" value="Female"/> Female
                             </label>
                             <input type="hidden" id="gender"/>
                           </div>
@@ -810,43 +810,43 @@ if(isset($_SESSION['campusSelected'])) {
   function subDoc(value) {
     if(value === 'Good Moral') {
       //alert(value);
-      $('#good_moral').val(value);
+      $('#good_moral').val('Ok');
     }
     else if(value === 'Card') {
       //alert(value);
-      $('#card').val(value);
+      $('#card').val('Ok');
     }
     else if(value === 'Form 137') {
       //alert(value);
-      $('#form_137').val(value);
+      $('#form_137').val('Ok');
     }
     else if(value === 'PSA') {
       //alert(value);
-      $('#psa').val(value);
+      $('#psa').val('Ok');
     }
     else if(value === 'ID') {
       //alert(value);
-      $('#id').val(value);
+      $('#id').val('Ok');
     }
     else if(value === 'PE Shirt') {
       //alert(value);
-      $('#peShirt').val(value);
+      $('#peShirt').val('Ok');
     }
     else if(value === 'Waiver') {
       //alert(value);
-      $('#waiver').val(value);
+      $('#waiver').val('Ok');
     }
     else if(value === 'Uniform') {
       //alert(value);
-      $('#uniform').val(value);
+      $('#uniform').val('Ok');
     }
     else if(value === 'Allowance') {
       //alert(value);
-      $('#allowance').val(value);
+      $('#allowance').val('Ok');
     }
     else if(value === 'Document Filed') {
       //alert(value);
-      $('#docuFiled').val(value);
+      $('#docuFiled').val('Ok');
     } 
   }
   //to check fields val
@@ -1035,13 +1035,6 @@ if(isset($_SESSION['campusSelected'])) {
           showConfirmButton: true,
           allowEscapeKey : false,
           allowOutsideClick: false
-        }).then((actionOne) => {
-          if(actionOne) {
-            $('#qualification_form').trigger('reset');
-            $('#qualification_form').find('.is-invalid').removeClass('is-invalid');
-            $('#qualification_form').find('.is-valid').removeClass('is-valid');
-            return false;
-          }
         });
       }
       else if(alreadyEnrolled === 'Yes') {
@@ -1054,49 +1047,18 @@ if(isset($_SESSION['campusSelected'])) {
           showConfirmButton: true,
           allowEscapeKey : false,
           allowOutsideClick: false
-        }).then((actionTwo) => {
-          if(actionTwo) {
-            $('#qualification_form').trigger('reset');
-            $('#qualification_form').find('.is-invalid').removeClass('is-invalid');
-            $('#qualification_form').find('.is-valid').removeClass('is-valid');
-            return false;
-          }
         });
       }
       else if(firstTimeApply === 'No') {
         Swal.fire({
           title: "",
-          html: "<h4 class='text-danger'>Sorry, we cannot continue because of the following reason/s:</h4><hr/><h6><strong>The applicant should graduate Junior High School first</strong></h6><label style='font-size: 15px!important'>A Grade 10 student is expected to have graduated before classes start this october.</label><br/><br/><h6><strong>One account and one application only per applicant</strong></h6><label style='font-size: 15px!important'>An applicant can only have one (1) Golden Minds student account. For more information please read the <a href='javascript:void(0)'>qualification requirement</a>.</label>", 
+          html: "<h4 class='text-danger'>Sorry, we cannot continue because of the following reason/s:</h4><hr/><h6><strong>The applicant should graduate Junior High School first</strong></h6><label style='font-size: 15px!important'>A Grade 10 student is expected to have graduated before classes start this october.</label>", 
           icon: "warning",
           confirmButtonText: "Okay",
           confirmButtonColor: "#5f76e8",
           showConfirmButton: true,
           allowEscapeKey : false,
           allowOutsideClick: false
-        }).then((actionThree) => {
-          if(actionThree) {
-            $('#qualification_form').trigger('reset');
-            $('#qualification_form').find('.is-invalid').removeClass('is-invalid');
-            $('#qualification_form').find('.is-valid').removeClass('is-valid');
-            return false;
-          }
-        });
-      }
-      else if(preferredCampus === "") {
-        Swal.fire({
-          title: "",
-          html: "<h4 class='text-danger'>Please specify which campus you want to enrolled.</h4>", 
-          icon: "warning",
-          confirmButtonText: "Okay",
-          confirmButtonColor: "#5f76e8",
-          showConfirmButton: true,
-          allowEscapeKey : false,
-          allowOutsideClick: false
-        }).then((actionFour) => {
-          if(actionFour) {
-            $('#campus').addClass('is-invalid');
-            return false;
-          }
         });
       }
       //If student passed for all qualification requirements, then they can go in fill up form
@@ -1159,7 +1121,7 @@ if(isset($_SESSION['campusSelected'])) {
       let middleName = $('#middleName').val();
       let extName = $('#extName').val();
       //concatenate to the student name to get their full name
-      var studentFullName = lastName + ', ' + firstName + ', ' + middleName + '. ' + extName;
+      var studentFullName = lastName + ', ' + firstName + ' ' + middleName + ' ' + extName;
       //alert(studentFullName);
 
       let gender = $('#gender').val();
@@ -1185,14 +1147,14 @@ if(isset($_SESSION['campusSelected'])) {
       let lnFather = $('#lnFather').val();
       let fnFather = $('#fnFather').val();
       let mnFather = $('#mnFather').val();
-      var fatherFullName = lnFather + ', ' + fnFather + ', ' + mnFather + '. ';
+      var fatherFullName = lnFather + ', ' + fnFather + ' ' + mnFather + ' ';
       //alert(fatherFullName);
       let occupationFather = $('#occupationFather').val();
 
       let lnMother = $('#lnMother').val();
       let fnMother = $('#fnMother').val();
       let mnMother = $('#mnMother').val();
-      var motherFullName = lnMother + ', ' + fnMother + ', ' + mnMother + '. ';
+      var motherFullName = lnMother + ', ' + fnMother + ' ' + mnMother + ' ';
       //alert(motherFullName);
       let occupationMother = $('#occupationMother').val();
 
@@ -1207,6 +1169,24 @@ if(isset($_SESSION['campusSelected'])) {
 
       let referralName = $('#referralName').val();
       let referralNumber = $('#referralNumber').val();
+
+      let  goodMoral = $('#good_moral').val();
+      let  card = $('#card').val();
+      let  form137 = $('#form_137').val();
+
+      let  psac1 = $('#psa').val();
+      let  psac2 = $('#psa_remarks').val();
+      var  psa = psac1 + '(' + psac2 + ')';
+      
+
+      let  ID = $('#id').val();
+      let  peShirt = $('#peShirt').val();
+      let  waiver = $('#waiver').val();
+      let  uniform = $('#uniform').val();
+      let  allowance = $('#allowance').val();
+      let  docuFiled = $('#docuFiled').val();
+
+      //alert(psa);
 
       //initialized object and store all data objFormData
       const objFormData = {
@@ -1243,9 +1223,20 @@ if(isset($_SESSION['campusSelected'])) {
         occupationGuardian: occupationGuardian,
         cnGuardian: cnGuardian,
         referralName: referralName,
-        referralNumber: referralNumber
-      };
+        referralNumber: referralNumber,
 
+        goodMoral: goodMoral,
+        card: card,
+        form137: form137,
+        psa: psa,
+        ID: ID,
+        peShirt: peShirt,
+        waiver: waiver,
+        uniform: uniform,
+        allowance: allowance,
+        docuFiled: docuFiled
+      };
+      //console.table(objFormData);
       if(
         isEmpty(gradeLevel) && 
         isEmpty(schoolYear) && 
@@ -1315,14 +1306,32 @@ if(isset($_SESSION['campusSelected'])) {
             {
               return new Promise(function(resolve) { 
                 setTimeout(function () {
-                  //alert("success");
+                  //alert("test");
                   //send ajax request to the server
                   $.ajax({
                     method: "POST",
                     url: "assets/api/actions/admission.contr.php",
                     data: { objFormData: objFormData },
                     success: function(result) {
-                      console.log(result);
+                      //console.log(result);
+                      // alert(result);
+                      // location.reload();
+                      Swal.fire({
+                        title: "Thank you! <br/>" + result,
+                        html: "Your online application was successfully submitted.<br/>Kindly monitor your email for notifications regarding the status and updates on your admission/enrollment application.",
+                        imageUrl: "resources/images/general/gmc/gmc_logo.png",
+                        imageHeight: 90,
+                        imageAlt: 'Golden Mind School Logo',
+                        confirmButtonText: "Okay",
+                        confirmButtonColor: "#996515",
+                        allowEscapeKey : false,
+                        allowOutsideClick: false
+                      }).then((res) => {
+                        if(res) {
+                          //location.reload();
+                          window.location.href = 'programs?sp=shs';
+                        }
+                      });
                     },
                     error: function(error) {
                       alert(error);

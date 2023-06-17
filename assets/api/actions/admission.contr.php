@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 
 #action to handle payload request for student admission
 if(isset($_POST['objFormData'])) {
-  //$payload = $_POST['objFormData'];
+  $payload = $_POST['objFormData'];
   //print_r($payload);
   //echo "payload recieve";
 
@@ -14,42 +14,54 @@ if(isset($_POST['objFormData'])) {
   */
 
   $studentDataInput = array(
-    'dof' => $_POST['dof'],
-    'gradeLevel' => $_POST['gradeLevel'],
-    'schoolYear' => $_POST['schoolYear'],
-    'semester' => $_POST['semester'],
-    'campus' => $_POST['campus'],
-    'strand' => $_POST['strand'],
-    'lrn' => filter_var($_POST['lrn'], FILTER_SANITIZE_NUMBER_INT),
-    'studentFullName' => filter_var($_POST['studentFullName'], FILTER_SANITIZE_STRING),
-    'gender' => $_POST['gender'],
-    'dob' => $_POST['dob'],
-    'pob' => filter_var($_POST['pob'], FILTER_SANITIZE_STRING),
-    'nationality' => filter_var($_POST['nationality'], FILTER_SANITIZE_STRING),
-    'religion' => filter_var($_POST['religion'], FILTER_SANITIZE_STRING),
-    'address' => filter_var($_POST['address'], FILTER_SANITIZE_STRING),
-    'brgy' => filter_var($_POST['brgy'], FILTER_SANITIZE_STRING),
-    'city' => filter_var($_POST['city'], FILTER_SANITIZE_STRING),
-    'province' => filter_var($_POST['province'], FILTER_SANITIZE_STRING),
-    'contactNo' => filter_var($_POST['contactNo'], FILTER_SANITIZE_NUMBER_INT),
-    'completionDate' => $_POST['completionDate'],
-    'completerAs' => $_POST['completerAs'],
-    'fsn' => filter_var($_POST['fsn'], FILTER_SANITIZE_STRING),
-    'fsa' => filter_var($_POST['fsa'], FILTER_SANITIZE_STRING),
-    'fan' => filter_var($_POST['fan'], FILTER_SANITIZE_STRING),
-    'fs' => filter_var($_POST['fs'], FILTER_SANITIZE_STRING),
-    'fatherFullName' => filter_var($_POST['fatherFullName'], FILTER_SANITIZE_STRING),
-    'occupationFather' => filter_var($_POST['occupationFather'], FILTER_SANITIZE_STRING),
-    'motherFullName' => filter_var($_POST['motherFullName'], FILTER_SANITIZE_STRING),
-    'occupationMother' => filter_var($_POST['occupationMother'], FILTER_SANITIZE_STRING),
-    'guardianFullName' => filter_var($_POST['guardianFullName'], FILTER_SANITIZE_STRING),
-    'rsGuardian' => filter_var($_POST['rsGuardian'], FILTER_SANITIZE_STRING),
-    'occupationGuardian' => filter_var($_POST['occupationGuardian'], FILTER_SANITIZE_STRING),
-    'cnGuardian' => filter_var($_POST['cnGuardian'], FILTER_SANITIZE_NUMBER_INT),
-    'referralName' => filter_var($_POST['referralName'], FILTER_SANITIZE_STRING),
-    'referralNumber' => filter_var($_POST['referralNumber'], FILTER_SANITIZE_NUMBER_INT),
+    'dof' => $payload['dof'],
+    'gradeLevel' => $payload['gradeLevel'],
+    'schoolYear' => $payload['schoolYear'],
+    'semester' => $payload['semester'],
+    'campus' => $payload['campus'],
+    'strand' => $payload['strand'],
+    'lrn' => filter_var($payload['lrn'], FILTER_SANITIZE_NUMBER_INT),
+    'studentFullName' => htmlspecialchars($payload['studentFullName'], ENT_QUOTES | ENT_HTML5),
+    'gender' => $payload['gender'],
+    'dob' => $payload['dob'],
+    'pob' => htmlspecialchars($payload['pob'], ENT_QUOTES | ENT_HTML5),
+    'nationality' => htmlspecialchars($payload['nationality'], ENT_QUOTES | ENT_HTML5),
+    'religion' => htmlspecialchars($payload['religion'], ENT_QUOTES | ENT_HTML5),
+    'address' => htmlspecialchars($payload['address'], ENT_QUOTES | ENT_HTML5),
+    'brgy' => htmlspecialchars($payload['brgy'], ENT_QUOTES | ENT_HTML5),
+    'city' => htmlspecialchars($payload['city'], ENT_QUOTES | ENT_HTML5),
+    'province' => htmlspecialchars($payload['province'], ENT_QUOTES | ENT_HTML5),
+    'contactNo' => filter_var($payload['contactNo'], FILTER_SANITIZE_NUMBER_INT),
+    'completionDate' => $payload['completionDate'],
+    'completerAs' => $payload['completerAs'],
+    'fsn' => htmlspecialchars($payload['fsn'], ENT_QUOTES | ENT_HTML5),
+    'fsa' => htmlspecialchars($payload['fsa'], ENT_QUOTES | ENT_HTML5),
+    'fan' => htmlspecialchars($payload['fan'], ENT_QUOTES | ENT_HTML5),
+    'fs' => htmlspecialchars($payload['fs'], ENT_QUOTES | ENT_HTML5),
+    'fatherFullName' => htmlspecialchars($payload['fatherFullName'], ENT_QUOTES | ENT_HTML5),
+    'occupationFather' => htmlspecialchars($payload['occupationFather'], ENT_QUOTES | ENT_HTML5),
+    'motherFullName' => htmlspecialchars($payload['motherFullName'], ENT_QUOTES | ENT_HTML5),
+    'occupationMother' => htmlspecialchars($payload['occupationMother'], ENT_QUOTES | ENT_HTML5),
+    'guardianFullName' => htmlspecialchars($payload['guardianFullName'], ENT_QUOTES | ENT_HTML5),
+    'rsGuardian' => htmlspecialchars($payload['rsGuardian'], ENT_QUOTES | ENT_HTML5),
+    'occupationGuardian' => htmlspecialchars($payload['occupationGuardian'], ENT_QUOTES | ENT_HTML5),
+    'cnGuardian' => filter_var($payload['cnGuardian'], FILTER_SANITIZE_NUMBER_INT),
+    'referralName' => htmlspecialchars($payload['referralName'], ENT_QUOTES | ENT_HTML5),
+    'referralNumber' => filter_var($payload['referralNumber'], FILTER_SANITIZE_NUMBER_INT),
+
+    'goodMoral' => $payload['goodMoral'],
+    'card' => $payload['card'],
+    'form137' => $payload['form137'],
+    'psa' => htmlspecialchars($payload['psa'], ENT_QUOTES | ENT_HTML5),
+    'ID' => $payload['ID'],
+    'peShirt' => $payload['peShirt'],
+    'waiver' => $payload['waiver'],
+    'uniform' => $payload['uniform'],
+    'allowance' => $payload['allowance'],
+    'docuFiled' => $payload['docuFiled']
   );
 
+  //print_r($studentDataInput);
   $insertDataObj = new AdmissionContr();
 	$insertDataObj->createNewStudentRecord($studentDataInput);
 }

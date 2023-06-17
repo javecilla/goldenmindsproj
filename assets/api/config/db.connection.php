@@ -6,7 +6,7 @@ class Config
   protected function connect()
   {
     try {
-     //load private credentials from config.ini->then create dbconnection	    
+     //load private credentials from config.credentials->then create dbconnection	    
 		 $config = parse_ini_file('db.credentials.ini'); 
 		 $connection = new mysqli($config['host'], $config['username'], $config['password'], $config['dbname']);
       
