@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,5 +13,28 @@
     $view = new AdmissionView();
     $view->showData();
   ?>
+
+  <form action="test.php" method="POST">
+    <input type="text" id="input1">
+    <input type="text" id="input2">
+    <button type="button" id="submit" >click</button>
+  </form>
+  
+  <script>
+    function isEmpty(field) {
+      return field === '';
+    }
+
+    document.getElementById('submit').addEventListener('click',
+      function(e) {
+        e.preventDefault();
+        var input2 = document.getElementById('input2').value;
+        if(isEmpty(input2)) {
+          alert("Emppty!");
+        }
+      }
+    );
+ 
+  </script>
 </body>
 </html>

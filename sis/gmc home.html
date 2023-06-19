@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  		<title> Home | Golden Minds Colleges</title>
+    	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<meta http-equiv="X-UA-Compatible" content="ie-edge"/>
+
+    	<!-- Favicon-->
+		<link rel="icon" type="image/x-icon" href="images/gmc-logo.png" />
+
+		<!--Main core CSS File(include bootstrap)-->	
+		<link async rel="stylesheet" href="css/style.css" defer />
+ 	</head>
+
+	<body onload = "login()" style="background-image: url('images/gmc-bg.png');">
+
+		<!--SCROLL BACKTOP TOP BUTTON-->
+		<button onclick="topFunction()" id="back_to_top_btn" data-toggle="tooltip" data-placement="top" title="Back to Top">
+			<img src="images/arow-up.png" />
+		</button>
+
+		<!--<img src="images/gmc-bg.png" /> -->	
+		<input type = 'hidden' name = 'txtusername' id = 'txtusername' />
+
+		<?php
+		/*
+			$cn = mysqli_connect('localhost', 'root', '', 'gmcbulac_db_gmc');
+			//$cn = mysqli_connect('localhost', 'gmcbulac_derek03', 'derek030872', 'gmcbulac_db_gmc');
+			$txtusername = $_POST['txtusername'];
+			$sql = mysqli_query($cn, "select * from account_registration where username = '$txtusername'");
+			while($row = mysqli_fetch_assoc($sql))
+			{
+				$username = $row['username'];
+			}
+		*/
+		?>
+
+		<header>
+	 		<section class="ftco-section">
+				<div class="container header-con">
+					<img src="images/gmc-logo.png" class="gmc-logo-header"/>
+					<label class="text-uppercase gmc-name">
+						<span class="capital-letter">G</span><small>olden</small> 
+						<span class="capital-letter"> M</span><small>inds</small> 
+						<span class="capital-letter">C</span><small>olleges</small>
+						<!--<small id="region" class="small-letter">OF STA. MARIA - BALAGTAS, BULACAN, INC.</small>-->
+					</label>	
+				</div>
+			</section>
+		</header>
+		
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    	<div class="container">
+
+	    		<!--<img src="images/gmc-logo.header.png" />-->
+
+	    		<div class="row justify-content-between">
+					<div class="col d-flex">
+
+						<!--USER IMAGE-->
+						<img src="images/user.png" class="navbar" height="65" data-toggle="tooltip" data-placement="top" title="User Profile"/>
+
+						<form action = 'gmc home.php' method = 'post'>
+							<!--USER ACCOUNT NAME-->
+							<input type = 'text' name = 'txtacctname' id = 'txtacctname' value="Jelo Victoriano" class="user-account-name navbar-brand" readonly /><br/>
+
+							<!--USER ACCESS LEVEL-->
+							<input type = 'text' name = 'txtaccesslevel' id = 'txtaccesslevel' value="Admin" class="user-access-level navbar-brand" readonly />
+
+							<input type = 'hidden' name = 'txtusername' value = '<?php echo $username;?>' />
+						</form>
+					</div>	
+				</div>
+
+				<!--MENU BUTTON [button show for tablet and cellphone screenview]-->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="	  ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        		<span class="fa fa-bars"></span> Menu
+				</button>
+
+				<!--Collapse default navbar to menu button-->
+				<div class="collapse navbar-collapse" id="ftco-nav"><hr/>
+
+	        		<!--MAIN BUTTON LIST-->
+	        		<ul class="navbar-nav mr-auto">
+
+	        			<!--FOR HOME BUTTON-->
+	        			<li class="nav-item">
+	        				<form action = 'gmc home.php' method = 'post' class="nav-form-btn">
+	        					<input type = 'submit' value = 'HOME' class="home-btn "/>
+	        					<input type = 'hidden' name = 'txtusername' value = '<?php echo $username;?>' />
+	        				</form>
+	        			</li>
+
+	        			<!--FOR ACCOUNT BUTTON-->
+	        			<li class="nav-item">	
+	        				<form action = 'gmc account.php' method = 'post'>
+	        					<input type = "submit" name = 'btnacct' id = 'btnacct' value = 'ACCOUNT' class="acc-btn btn-nav" />
+	        					<input type = 'hidden' name = 'txtusername' value = '<?php echo $username;?>'>
+	        				</form>
+	        			</li>
+
+	        			<!--FOR LOGOUT BUTTON-->
+	        			<li class="nav-item">
+	        				<form action = '' method = ''> 
+	        					<input type = 'button' value = 'LOGOUT' onclick = 'logout()' class="logout-btn">
+	        				</form>
+	        			</li>
+
+
+	        			<!--USER ACCESS DROPDOWN BUTTON-->
+	        			<li class="nav-item dropdown">
+              			<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User Access</a>
+              			<div class="dropdown-menu" aria-labelledby="dropdown04" style="background: #765341;">
+
+              				<!--TABLE FOR ADMIN -->
+              				<table id = 'tbladmin' border = 2>
+              					<tr>
+
+              						<!--FOR USER ACCOUNT BUTTON-->
+              						<th>
+              							<form action = 'gmc user accounts.php' method = 'post'>
+              								<input type = 'submit' name = 'useraccounts' id = 'btnuseraccounts' value = 'User Accounts' class="admin-btn-user-account" />
+              								<input type = 'hidden' name = 'txtusername' value = '<?php echo $username;?>' />
+              							</form>
+              						</th>
+
+										<!--FOR S.O.A BUTTON-->
+              						<th>
+										<form action = 'gmc soa.php' method = 'post'>
+											<input type = 'submit' name = 'soa' id = 'btnsoa' value = 'S.O.A.' class="admin-btn-soa" />
+												&nbsp;&nbsp;&nbsp;
+											<input type = 'hidden' name = 'txtusername' value = '<?php echo $username;?>' />
+										</form>
+									</th>
+
+									<!--FOR SETTINGS BUTTON-->
+									<th>
+										<form action = 'gmc settings.php' method = 'post'>
+											<input type = 'submit' name = 'settings' id = 'btnsettings' value = 'Settings' class="admin-btn-settings" />
+											<input type = 'hidden' name = 'txtusername' value = '<?php echo $username;?>' />
+										</form>
+									</th>
+
+              					</tr>
+              				</table>
+
+              				<hr/>
+
+              				<!--TABLE FOR TEACHER-->
+              				<table id = 'tblteacher' border = 2>
+              					<tr>
+              						<!--FOR REGISTRATION BUTTON-->
+              						<th>
+              							<form action = 'gmc registration.php' method = 'post'>
+											<input type = 'submit' name = 'btnregistration' id = 'btnregistration' value = 'Registration' class="teacher-btn-registration" />
+											<input type = 'hidden' name = 'txtusername' value = '<?php echo $username;?>'>
+										</form>
+              						</th>
+              					
+              						<!--FOR STUDENT LIST BUTTON-->
+              						<th>
+              							<form action = 'gmc student list.php' method = 'post'>
+											<input type = 'submit' name = 'btnstudlist' id = 'btnstudlist' value = 'Student List' class="teacher-btn-student-list" />
+											<input type = 'hidden' name = 'txtusername' value = '<?php echo $username;?>'>
+										</form>
+              						</th>
+
+              						<!--FOR SUMMARY BUTTON-->
+              						<th>
+              							<form action = 'gmc sog.php' method = 'post'>
+											<input type = 'submit' name = 'sog' id = 'btnsog' value = 'Summary' class="teacher-btn-summary" />
+											<input type = 'hidden' name = 'txtusername' value = '<?php echo $username;?>'>
+										</form>
+              						</th>
+              					</tr>
+              				</table>
+
+              				<hr/>
+
+              				<!--TABLE FOR STUDENT-->
+              				<table id = 'tblstudent' border = 2>
+              					<tr>
+              						<!--FOR PROFILE BUTTON-->
+              						<th>
+              							<form action = 'gmc profile.php' method = 'post'>
+											<input type = 'submit' name = 'profile' id = 'btnprofile' value = 'Profile' class="student-btn-profile"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<input type = 'hidden' name = 'txtusername' value = '<?php echo $username;?>' />
+										</form>
+              						</th>
+
+              						<!--FOR GRADES BUTTON-->
+              						<th>
+              							<form action = 'gmc grades.php' method = 'post'>
+											<input type = 'submit' name = 'grades' id = 'btngrades' value = 'Grades' class="student-btn-grades"/>
+												&nbsp;&nbsp;&nbsp;&nbsp;
+											<input type = 'hidden' name = 'txtusername' value = '<?php echo $username;?>' />
+										</form>
+              						</th>
+
+              						<!--FOR PAYMENTS BUTTON-->
+              						<th>
+              							<form action = 'gmc payments.php' method = 'post'>
+											<input type = 'submit' name = 'payments' id = 'btnpayments' value = 'Payments' class="student-btn-payments" />
+											<input type = 'hidden' name = 'txtusername' value = '<?php echo $username;?>' />
+										</form>
+              						</th>
+              					</tr>
+              				</table>
+
+              			</div>
+            		</li>
+	        		</ul>
+
+	        		<!--GMC POST TIMELINE-->	
+	        		<div class="input-text-field">
+
+						<form action='gmc home.php' method='post' class="d-flex input-group w-auto my-auto mb-3 mb-md-0">
+							<!--FOR INPUT TYPE FIELD-->
+							<input type = 'text' name = 'txtpost' id = 'txtpost' placeholder = "What's on your Golden Minds?" class="form-control mr-sm-2 rounded search-field" required>
+                      
+							<!--FOR INPUT 'POST' BUTTON-->
+							<input type = 'submit' name = 'btnpost' id = 'btnpost' value = "Post" class="post-btn rounded text-uppercase"  >
+
+							<input type = 'hidden' name = 'txtusername' value = '<?php echo $username;?>' />
+						</form>
+
+					</div>
+
+				</div>
+	    	</div>
+	  	</nav>
+
+		<main>
+			<div class="my-5">
+				<div class="container">
+					<section>
+						<h4 class="mb-5-left announcement-heading text-center"><strong>ANNOUNCEMENT</strong></h4>
+						<br/>
+						<div class="row text-left">
+
+							<div class="col-lg-6 mb-4">
+								<div class="card-announcement">
+            				
+									<div class="card-body">
+										<table>
+
+											<!--TABLE ROW FOR ANNOUNCEMENT HEADING TITLE-->
+											<tr>
+												<th>
+													<input type="text" value="January 26" class="announcement-date"/>
+												</th>
+											</tr>
+
+											<!--TABLE ROW FOR ANNOUNCEMENT CONTENT-->
+											<tr>
+												<td class="announcement-content">
+													announcement content goess hereee announcement content goess hereee content goess hereee announcement content
+												</td>
+											</tr>
+
+											<!--TABLE ROW FOR ANNOUNCEMENT ADMIN ACTION BUTTON-->
+											<tr>
+												<td>
+													<br/>
+													<button type="submit" class="btn btn-edit" data-toggle="tooltip" data-placement="bottom" title="Edit Announcement">Edit</button>
+													<button type="submit" class="btn btn-delete" data-toggle="tooltip" data-placement="bottom" title="Delete Announcement">Delete</button>
+												</td>
+											</tr>
+
+										</table>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-6 mb-4">
+								<div class="card-announcement">
+
+									<div class="card-body">
+										<table>
+											<!--TABLE ROW FOR ANNOUNCEMENT HEADING TITLE-->
+											<tr>
+												<th>
+													<input type="text" value="January 23" class="announcement-date"/>
+												</th>
+											</tr>
+											<!--TABLE ROW FOR ANNOUNCEMENT CONTENT-->
+											<tr>
+												<td class="announcement-content">
+													announcement content goess hereee announcement content goess hereee content goess hereee announcement content
+												</td>
+											</tr>
+											<!--TABLE ROW FOR ANNOUNCEMENT ADMIN ACTION BUTTON-->
+											<tr>
+												<td>
+													<br/>
+													<button type="submit" class="btn btn-edit" data-toggle="tooltip" data-placement="bottom" title="Edit Announcement">Edit</button>
+													<button type="submit" class="btn btn-delete" data-toggle="tooltip" data-placement="bottom" title="Delete Announcement">Delete</button>
+												</td>
+											</tr>
+										</table>
+									</div>
+
+								</div>
+							</div>
+
+						</div> 
+					</section>
+				</div>
+			</div>
+			
+			<!--WALL POST-->
+			<div class="container">
+				<section>
+				
+        			<h4 class="mb-5-left announcement-heading text-center"><strong>WALLPOST</strong></h4>
+					<br/>
+					<div class="card mb-4">
+						<div class="row text-left">
+							<div class="card-body">
+
+								<!--Data Table-->
+								<table  cellspacing = 0>
+								   <form action = 'gmc home.php' method = 'post'>
+
+										<tr>										    
+											<td>
+												<input type = 'hidden' name = 'txtpostno' value = '$row[post_no]'>
+												<input type = 'hidden' name = 'txtuser' value = '$row[username]'>
+											</td>
+										</tr>
+										
+										<!--USER ACCOUNT NAME-->
+										<!--<td>".$row['account_name']."</td>-->
+										<tr>	
+											<td>
+												<input type='text' value='Jerome Avecilla'
+													style='border: none;
+													background: transparent;
+													color: gray;
+ 													font-weight: 600;
+ 													font-size: 18px;
+ 													text-transform: uppercase;
+ 													margin-left: 20px;' 
+ 												/>
+ 											</td>
+										</tr>
+										
+										<!--USER POST CONTENT WALL-->
+										<!--<td>".$row['user_post']."</td>-->
+										<tr>
+											<td style='padding-left:20px;'>
+												good morning gmcians good morning gmciansgood morning gmciansgood morning gmciansgood morning gmciansgood morning gmciansgood morning gmciansgood morning gmciansgood morning gmciansgood morning gmciansgood morning gmcians
+											</td>
+										</tr>
+										
+										
+										<!--ACTION BUTTON-->
+										<tr>
+											<td>
+												<br/>
+												<input type = 'submit' name = 'btnedit' id = 'btnedit' value = 'Edit' 
+												   data-toggle='tooltip' data-placement='bottom' title='Edit Announcement' 
+												   style='background: #765341;
+													color: #fff;
+													opacity: 0.6;
+													border: 1px solid transparent;
+   												padding: 0.375rem 0.75rem;
+   												margin-left: 20px;
+   												border-radius: 0.25rem;' 
+   												disabled 
+   											/>
+
+												<input type = 'submit' name = 'btndelete' id = 'btndelete' value = 'Delete'
+												   data-toggle='tooltip' data-placement='bottom' title='Delete Post'
+												   style='background: #593b30 !important;
+  													color: #fff;
+  													border: 1px solid transparent;
+   												padding: 0.375rem 0.75rem;
+   												border-radius: 0.25rem; ' 
+   											/>
+
+												<input type = 'hidden' name = 'txtaccesslevel' value = '$accesslevel'>
+												<input type = 'hidden' name = 'txtusername' value = '$username'>
+											</td>
+										</tr>
+
+									</form>								
+								</table>
+
+							</div>
+						</div>		
+					</div>
+					
+        		</section>
+    		</div>	
+		</main>
+
+		<footer class="text-center">
+			&copy;2010-2023 Golden Minds Colleges Bulacan, Inc.
+		</footer>
+
+
+		<!-- JS File includes(bootstrap)-->
+		<script src="js/jquery.min.js"></script>
+  		<script src="js/popper.js"></script>
+  		<script src="js/bootstrap.min.js"></script>
+  		<!--Main JS File -->
+  		<script async src="js/main.js" defer></script>
+
+	</body>
+</html>

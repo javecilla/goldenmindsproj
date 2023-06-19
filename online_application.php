@@ -234,7 +234,7 @@ if(isset($_SESSION['campusSelected'])) {
                         <div class="seven-q mt-4">
                           <label class="mb-1 quali-label"><strong>7. Which Golden Minds Campus is the applicant applying for? </strong></label>
                           <select class="form-select quali-select" id="campus">
-                            <option value="" selected>Select your preferred SIMS Branch/Campus...</option>
+                            <option value="" selected>Select your preferred Golden Minds Branch/Campus...</option>
                             <option value="Sta. Maria, Bulacan">Sta. Maria, Bulacan</option>
                             <option value="Balagtas, Bulacan">Balagtas, Bulacan</option>
                           </select>
@@ -1310,7 +1310,7 @@ if(isset($_SESSION['campusSelected'])) {
                   //send ajax request to the server
                   $.ajax({
                     method: "POST",
-                    url: "assets/api/actions/admission.contr.php",
+                    url: "assets/api/actions/admission.contr.php", 
                     data: { objFormData: objFormData },
                     success: function(result) {
                       //console.log(result);
@@ -1318,7 +1318,7 @@ if(isset($_SESSION['campusSelected'])) {
                       // location.reload();
                       Swal.fire({
                         title: "Thank you! <br/>" + result,
-                        html: "Your online application was successfully submitted.<br/>Kindly monitor your email for notifications regarding the status and updates on your admission/enrollment application.",
+                        html: "Your online application was successfully submitted.<br/>We will inform you regarding the status and updates on your admission/enrollment application.",
                         imageUrl: "resources/images/general/gmc/gmc_logo.png",
                         imageHeight: 90,
                         imageAlt: 'Golden Mind School Logo',

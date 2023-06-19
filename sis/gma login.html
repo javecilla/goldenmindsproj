@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>GMA Login</title>
+</head>
+<body>
+
+<img src = "imgbg.png" style = "height: 100%; width: 100%; position: fixed; top: 0; left: 0;">
+
+<center>
+
+<table border = 10 style = "border-color: EFC372; background-color: white; height: 450; width: 700; position: relative; top: 130; border-radius: 15px;">
+
+<td style = "border: none">
+
+<form action = "gma login.php" method = "post">
+
+<center>
+
+<input type = "text" name = "txtusername" id = "txtusername" placeholder = "Username" style = "font-size: 30; width: 500; text-align: center; border-color: 28110d; border-radius: 5px; position: relative; top: 40;">
+
+<input type = "password" name = "txtpass" id = "txtpass" placeholder = "Password" style = "font-size: 30; width: 500; text-align: center; border-color: 28110d; border-radius: 5px; position: relative; top: 70;">
+
+</center>
+
+<input type = "checkbox" id = "chkshow" style = "height: 30; width: 30; position: absolute; top: 194; left: 550;" onclick = "show()">
+
+<center>
+
+<input type = "submit" value = "LOG IN" name = "btnlogin" id = "btnlogin" style = "height: 50; font-size: 30; width: 500; text-align: center; background-color: 28110d; border: none; border-radius: 5px; color: white; position: relative; top: 100;">
+
+<p style = "font-size: 22; text-align: center; position: relative; top: 70;">
+_____________________________________________
+</p>
+
+<input type = "button" value = "CREATE AN ACCOUNT" style = "height: 50; font-size: 30; width: 500; text-align: center; background-color: EFC372; border: none; border-radius: 5px; color: white; position: relative; top: 70;" onclick = "window.location.href = 'gma account registration.html';">
+
+</center>
+
+</form>
+
+</td>
+</table>
+
+<img src = "imglogo.png" style = "height: 250; width: 240; position: relative; top: -440;">
+
+</center>
+
+</body>
+</html>
+
+<script> 
+
+var txtusername = document.getElementById('txtusername');
+
+document.getElementById('btnlogin').addEventListener('click', store_data);
+
+txtusername.addEventListener('keypress', function(key)
+
+{   
+key.which = key.which || key.keyCode;
+if(key.which == 13)
+{
+store_data();
+}
+}
+);
+
+function store_data()
+{
+localStorage.setItem('objectToPass', txtusername.value);
+}
+	
+function show()
+{
+
+if (document.getElementById('chkshow').checked == true)
+{
+document.getElementById('txtpass').type = "text"
+}
+else
+{
+document.getElementById('txtpass').type = "password"
+}
+
+}
+
+</script>

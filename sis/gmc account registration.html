@@ -1,0 +1,230 @@
+<html>
+<head>
+<title>Account Registration</title>
+</head>
+<body>
+
+<img src = "bg.png" style = "position: fixed; top: 100; left: 0; height: 100%; width: 100%;">
+
+<center>
+
+<table border = 2 style = "background-color: 28110d; border: none; height: 100; width: 1000; position: relative; top: 0;">
+
+<tr>
+<th style = 'border-color: transparent; text-align: center;'>
+<img src = 'logoM.png' style = 'height: 300; width: 950;'>
+</th>
+</tr>
+
+</table>
+
+<form action = 'gmc student information.php' method = 'post'>
+
+<table border = 2 style = "border-color: 28110d; height: 2000; width: 1000; border-left: 3px solid black; border-right: 3px solid black; border-bottom: 4px solid black; position: relative; top: 0;">
+
+<tr style = 'height: 300;'>
+<th style = 'border-color: transparent; text-align: center; font-size: 30;'>
+
+Date of Admission:
+
+<br>
+
+<input type = 'date' name = "dtreg" id = 'dtreg' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 400; font-size: 30;' onclick = 'age()' onchange = 'age()' required>
+
+<br><br>
+
+<input type = 'search' list = 'strand' name = 'cmbstrand' id = 'cmbstrand' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'Track / Strand' required>
+
+<br><br>
+
+<input type = 'text' name = "txtlrn" id = 'txtlrn' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'LRN' required>
+
+<br><br>
+
+Learners Name:
+
+<br>
+
+<input type = 'text' name = "txtlastname" id = 'txtlastname' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 250; font-size: 30;' placeholder = 'Last Name' required>
+
+<input type = 'text' name = "txtextensionname" id = 'txtextensionname' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 130; font-size: 30;' placeholder = 'Ext.'>
+
+<input type = 'text' name = "txtfirstname" id = 'txtfirstname' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 250; font-size: 30;' placeholder = 'First Name' required>
+
+<input type = 'text' name = "txtmiddlename" id = 'txtmiddlename' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 250; font-size: 30;' placeholder = 'Middle Name'>
+
+</th>
+</tr>
+
+<tr style = 'height: 50;'>
+<th style = 'border-color: transparent; text-align: center; font-weight: bold; font-size: 30; height: 60;'>
+
+Gender:
+
+<input type = 'radio' name = "rbmale" id = 'rbmale' style = 'width: 30; height: 30;' onclick = 'male()'>
+M
+
+<input type = 'radio' name = "rbfemale" id = 'rbfemale' style = 'width: 30; height: 30;' onclick = 'female()'>
+F
+
+<input type = 'hidden' name = "txtgender" id = 'txtgender' style = 'border-color: 28110d; border-radius: 5px; width: 100; font-size: 20; text-align: center;'>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Birthday:
+<input type = 'date' name = "dtbday" id = 'dtbday' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 250; font-size: 30; text-align: right;' onclick = 'age()' onchange = 'age()' required>
+
+Age:
+
+<input type = "text" name = "txtage" id = "txtage" style = "background-color: transparent; border-color: 28110d; border-radius: 5px; width: 70; font-size: 30; text-align: center;" readonly>
+
+</th>
+</tr>
+
+<tr style = 'height: 1650;'>
+<th style = 'border-color: transparent; text-align: center; font-weight: bold; font-size: 30; height: 60;'>
+
+<input type = 'text' name = "txtbirthplace" id = 'txtbirthplace' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'Place of Birth'>
+
+<br><br>
+
+<input type = 'text' name = "txtreligion" id = 'txtreligion' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'Religion'>
+
+<br><br>
+
+<input type = 'text' name = "txthouseno" id = 'txthouseno' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'House No./Street Name'>
+
+<br><br>
+
+<input type = 'text' name = "txtbrgy" id = 'txtbrgy' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'Brgy.'>
+
+<br><br>
+
+<input type = 'text' name = "txtcity" id = 'txtcity' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'City/Municipality'>
+
+<br><br>
+
+<input type = 'text' name = "txtprovince" id = 'txtprovince' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'Province'>
+
+<br><br>
+
+<input type = 'text' name = "txtfather" id = 'txtfather' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = "Father's Name (L.N., F.N. M.N.)">
+
+<br><br>
+
+<input type = 'text' name = "txtmother" id = 'txtmother' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = "Mother's Name (L.N., F.N. M.N.)">
+
+<br><br>
+
+<input type = 'text' name = "txtguardian" id = 'txtguardian' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'Guardian Name (L.N., F.N. M.N.)'>
+
+<br><br>
+
+<input type = 'text' name = "txtrelationship" id = 'txtrelationship' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'Relationship'>
+
+<br><br>
+
+<input type = 'text' name = "txtcontactno" id = 'txtcontactno' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'Guardian Contact No.'>
+
+<br><br>
+
+<input type = 'text' name = "txtoccupation" id = 'txtoccupation' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'Occupation'>
+
+<br><br>
+
+<input type = 'text' name = "txtguardianaddress" id = 'txtguardianaddress' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'Guardian Address'>
+
+<br><br>
+
+Last School Completion Date:
+
+<br>
+
+<input type = 'date' name = "dtcompletion" id = 'dtcompletion' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 400; font-size: 30;'>
+
+<br><br>
+
+<input list = 'completerAs' name = 'cmbcompleterAs' id = 'cmbcompleterAs' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' onclick = 'clrcompleterAs()' placeholder = 'Completer As'>
+
+<datalist id = 'completerAs'>
+<option value = 'High School Completer'></option>
+<option value = 'Junior High School Completer'></option>
+<option value = 'PEPT Passer'></option>
+<option value = 'ALS A&E Passer'></option>
+<option value = 'Others'></option>
+</datalist>
+
+<br><br>
+
+<input type = 'text' name = "txtschoolname" id = 'txtschoolname' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'Last School Attended'>
+
+<br><br>
+
+<input type = 'text' name = "txtschooladdress" id = 'txtschooladdress' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'School Address'>
+
+<br><br>
+
+<input type = 'search' list = 'school' name = "txtschool" id = 'txtschool' style = 'background-color: transparent; border-color: 28110d; border-radius: 5px; width: 900; font-size: 30; text-align: center;' placeholder = 'School' required>
+<datalist id = 'school'>
+<option value = 'Golden Minds Colleges of Balagtas, Bulacan, Inc.'></option>
+<option value = 'Golden Minds Colleges of Sta. Maria, Bulacan, Inc.'></option>
+</datalist>
+
+<br><br>
+
+<input type = 'submit' name = 'register' id = 'btnregister' value = 'Register' style = 'width: 900; font-size: 30; border-color: 28110d; border-radius: 5px; text-align: center; background-color: EFC372;'	>
+
+</th>
+</tr>
+
+</table>
+
+</form>
+
+</center>
+
+</body>
+</html>
+
+<?php
+
+$cn = mysqli_connect('localhost', 'root', '', 'gmcbulac_db_gmc');
+//$cn = mysqli_connect('localhost', 'gmcbulac_derek03', 'derek030872', 'gmcbulac_db_gmc');
+
+$sql = mysqli_query($cn, "select * from strand order by strand asc;");
+$strand = mysqli_num_rows($sql);
+
+echo"<datalist id = 'strand'>";
+while($row = mysqli_fetch_assoc($sql))
+{
+echo"<option value = '$row[strand]'>";
+}
+echo"</datalist>";
+
+?>
+
+<script>
+
+function admin()
+{
+document.getElementById("txtaccesslevel").value = "Admin";
+document.getElementById('rbteacher').checked = false;
+document.getElementById('rbstudent').checked = false;
+}
+
+function teacher()
+{
+document.getElementById("txtaccesslevel").value = "Teacher";
+document.getElementById('rbadmin').checked = false;
+document.getElementById('rbstudent').checked = false;
+}
+
+function student()
+{
+document.getElementById("txtaccesslevel").value = "Student";
+document.getElementById('rbadmin').checked = false;
+document.getElementById('rbteacher').checked = false;
+}
+
+
+</script>

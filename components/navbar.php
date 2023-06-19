@@ -16,7 +16,7 @@
       <i class="fas fa-bars"></i>
     </button>  -->
     <style>
-      input[type="checkbox"] {
+      input[id="navcheckbox"] {
         -webkit-appearance: none;
         visibility: hidden!important;
         display: none!important;
@@ -55,25 +55,25 @@
         position: absolute;
         transition: 0.3s ease;
       }
-      input[type="checkbox"]:checked ~ .bar .top {
+      input[id="navcheckbox"]:checked ~ .bar .top {
         transform: rotate(-45deg);
         width: 27px;
         transform-origin: right;
         top: -10px;
       }
-      input[type="checkbox"]:checked ~ .bar .bot {
+      input[id="navcheckbox"]:checked ~ .bar .bot {
         transform: rotate(45deg);
         width: 27px;
         transform-origin: right;
         top: 10px;
       }
-      input[type="checkbox"]:checked ~ .bar .mid {
-        transform: translateX(20px);
+      input[id="navcheckbox"]:checked ~ .bar .mid {
+        transform: translateX(1px);
         opacity: 0;
       }
     </style>
     <label class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <input type="checkbox" />
+      <input type="checkbox" id="navcheckbox"/>
       <div class ="bar">
         <span class="top"></span>
         <span class="mid"></span>
